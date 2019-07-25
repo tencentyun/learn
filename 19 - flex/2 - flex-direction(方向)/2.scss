@@ -1,0 +1,84 @@
+.nav-1{
+  display: flex;
+  flex-direction: row;      // 水平横向布局  default
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  .item-1{
+    flex: 1;
+    background-color: yellow;
+  }
+  .item-2{
+    flex: 1;
+    background-color: pink;
+  }
+  .item-3{
+    flex: 1;
+    background-color: red;
+  }
+}
+
+.nav-2{
+  display: flex;
+  flex-direction: row-reverse;  // 水平反向布局
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  .item-1{
+    flex: 1;
+    background-color: yellow;
+  }
+  .item-2{
+    flex: 1;
+    background-color: pink;
+  }
+  .item-3{
+    flex: 1;
+    background-color: red;
+  }
+}
+
+.nav-3{
+  display: flex;
+  flex-direction: column;  // 垂直布局
+  text-align: center;
+  .item-1{
+    flex: 1;
+    height: 100px;
+    line-height: 100px;
+    background-color: yellow;
+  }
+  .item-2{
+    flex: 1;
+    height: 100px;
+    line-height: 100px;
+    background-color: pink;
+  }
+  .item-3{
+    flex: 1;
+    height: 100px;
+    line-height: 100px;
+    background-color: red;
+  }
+}
+
+.nav-4{
+  display: flex;
+  flex-direction: column-reverse;  // 垂直反向布局
+  text-align: center;
+  .item-1{
+    height: 100px;
+    line-height: 100px;
+    background-color: yellow;
+  }
+  .item-2{
+    height: 100px;
+    line-height: 100px;
+    background-color: pink;
+  }
+  .item-3{
+    height: 100px;
+    line-height: 100px;
+    background-color: red;
+  }
+}
