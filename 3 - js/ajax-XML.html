@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<input type="button" name="" id="btn" value="触发">
+	<div id="show"></div>
+
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		btn.onclick = function (){
+			var xhr = null;
+			if (window.XMLHttpRequest) {
+			    xhr = new XMLHttpRequest();
+			}else{
+			    xhr = new ActiveXObject("Microsoft.XMLHTTP"); 
+			}
+			console.log(xhr.readyState);
+
+			xhr.open('get','data.xml',true);
+			console.log(xhr.readyState);
+
+			xhr.send();
+			console.log(xhr.readyState);
+
+			xhr.onreadystatechange = function (){
+				if (xhr.readyState == 4 && xhr.status == 200){
+					console.log(xhr.responseXML);
+					var data = xhr.responseXML;
+
+					var bookstore = data.getElementsByTagName('bookstore')[0];
+					var book = bookstore.getElementsByTagName('book');
+					var temp = '';
+					for(var i=0; i<book.length; i++){
+						var name = book[i].getElementsByTagName('name')[0];
+						var category = book[i].getElementsByTagName('category')[0];
+						var desc = book[i].getElementsByTagName('desc')[0];
+						console.log(name);
+
+						temp += '<ul><li>'+test(name)+'</li><li>'+test(category)+'</li><li>'+test(desc)+'</li></ul>';
+					}
+					var show = document.getElementById('show');
+					show.innerHTML = temp;
+				}
+			}
+		}
+
+		function test(node){
+			if (window.XMLHttpRequest) {
+				return node.textContent;
+			}else{
+				return node.text;
+			}
+		}
+	</script>
+</body>
+</html>

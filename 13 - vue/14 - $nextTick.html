@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue 示例</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div id="app">
+        <div id="div" v-if="showDiv">这是一段文本</div>
+        <button @click="getText">获取div内容</button>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                showDiv: false
+            },
+            methods: {
+                getText: function (){
+                    this.showDiv = true;
+                    // 在执行this.showDiv = true时，div仍然还没有被创建出来，直到下一个vue事件循环时
+                    // 才开始创建 $nextTick就是用来知道什么时候DOM更新完成
+                    // VUE的核心思想就是数据驱动DOM，而不是主动去操作DOM，但是由于业务需求，会使用到第三方库
+                    this.$nextTick(function (){
+                        var text = document.getElementById('div').innerHTML;
+                        console.log(text);
+                    })
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

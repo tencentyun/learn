@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ng-enter ng-leave</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/dist/css/bootstrap.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .box.ng-enter{
+            animation: 1s showBox;
+        }
+        .box.ng-leave{
+            animation: 1s hideBox;
+        }
+        @keyframes showBox {
+            0%{
+                width: 0;
+                height: 0;
+            }
+            100%{
+                width: 200px;
+                height:200px;
+            }
+        }
+        @keyframes hideBox {
+            0%{
+                width: 200px;
+                height: 200px;
+            }
+            100%{
+                width: 0;
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body ng-controller="mainController">
+
+    <div class="box" ng-if="isShow"></div>
+
+    <button class="btn btn-primary" ng-click="isShow=true">显示</button>
+    <button class="btn btn-danger" ng-click="isShow=false">隐藏</button>
+
+    <script src="./angular-1.6.1/angular.js"></script>
+    <script src="./angular-1.6.1/angular-animate.js"></script>
+    <script>
+        var app = angular.module('myApp',['ngAnimate']);
+        app.controller('mainController',['$scope',function ($scope){
+            $scope.isShow = false;
+        }])
+    </script>
+</body>
+</html>

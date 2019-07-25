@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		}
+	div{
+		width:520px;
+		height:280px;
+		position:relative;
+		background:pink;
+		margin:0 auto;
+		overflow:hidden;
+		}
+	div ul{
+		width:3640px;
+		position:absolute;
+		left:-520px;
+		}	
+	div ul li{
+		list-style:none;
+		float:left;
+		width:520px;
+		height:280px;
+		font-size:30px;
+		text-align:center;
+		line-height:280px;
+		}
+	.prev ,.next{
+		width:30px;
+		height:50px;
+		position:absolute;
+		background:rgba(0,0,0,.4);
+		top:115px;
+		}	
+	.prev:hover,.next:hover{
+		background:rgba(0,0,0,.6);
+		}	
+	.prev{
+		left:0;
+		}
+	.next{
+		right:0;
+		}	
+	.prev:after{
+		content:'<';
+		color:#fff;
+		line-height:50px;
+		text-align:center;
+		width:100%;
+		height:100%;
+		display:inline-block;
+		}	
+	.next:after{
+		content:'>';
+		color:#fff;
+		line-height:50px;
+		text-align:center;
+		width:100%;
+		height:100%;
+		display:inline-block;
+		}
+	div ol{
+		position:absolute;
+		bottom:10px;
+		left:50%;
+		margin-left:-50px;
+		background:rgba(255,255,255,.2);
+		}
+	div ol li{
+		list-style:none;
+		float:left;
+		color:#fff;
+		width:10px;
+		height:10px;
+		border-radius:100%;
+		background-color:#fff;
+		overflow:hidden;
+		text-indent:10000px;
+		margin:0 5px;
+		cursor:pointer;
+		}
+	.orange{
+		background-color:orange!important;
+		}			
+							
+</style>
+</head>
+
+<body>
+	<div id="box">
+    	<ul>
+        	<li><img src="https://img.alicdn.com/simba/img/TB1SYOGggLD8KJjSszeSuuGRpXa.jpg" /></li>
+        	<li><img src="https://aecpm.alicdn.com/tfscom/TB1eCWYbS_I8KJjy0FoXXaFnVXa.jpg" /></li>
+            <li><img src="https://img.alicdn.com/tfs/TB1Pp2IfDnI8KJjy0FfXXcdoVXa-520-280.png_q90_.webp" /></li>
+            <li><img src="https://img.alicdn.com/simba/img/TB1gWrUXfTM8KJjSZFDSuultXXa.jpg" /></li>
+            <li><img src="https://img.alicdn.com/simba/img/TB10TmIgcnI8KJjSsziSuv8QpXa.jpg" /></li>
+            <li><img src="https://img.alicdn.com/simba/img/TB1SYOGggLD8KJjSszeSuuGRpXa.jpg" /></li>
+            <li><img src="https://aecpm.alicdn.com/tfscom/TB1eCWYbS_I8KJjy0FoXXaFnVXa.jpg" /></li>
+        </ul>
+        <a class="prev" href="javascript:void(0)"></a>
+         <a class="next"href="javascript:void(0)"></a>
+         <ol>
+         	<li class="orange">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+         </ol>
+    </div>
+</body>
+</html>
+<script>	
+	var ul=document.querySelector("#box ul");
+	var currentValue=Number(getStyle(ul,"left").replace("px",""));
+	var li =document.querySelectorAll("#box ul li");
+	var width=Number(getStyle(li[0],"width").replace("px",""));
+	var prev=document.querySelector(".prev");
+	var next=document.querySelector(".next");
+	var ol=document.querySelector("#box ol");
+	var oli=document.querySelectorAll("#box ol li");
+	function Move(obj){
+		var _this=this;
+		this.decoration=obj.decoration||null;
+		this.count=0;
+		this.init=function(changeValue){
+			ul.style.left=changeValue+"px";
+			};
+		this.action=function(){
+				var timer=setInterval(function(){
+					if(_this.decoration=="left"){
+						    _this.count-=10;
+							currentValue-=10;	
+						}else if(_this.decoration=="right"){
+							_this.count+=10;
+							currentValue+=10;	
+						}
+					if(currentValue==0){
+						currentValue=-width*(li.length-2);
+					}
+					if(currentValue==(li.length-1)*-width){
+						currentValue=-width;
+						}	
+					var index=Math.abs(currentValue/width)-1;
+					if(index>=li.length-(2+1)){
+						index=parseInt(index);
+						}
+					_this.olmove(Math.ceil(index));	
+					_this.init(currentValue);
+					if(Math.abs(_this.count)==width){
+						clearInterval(timer);
+						}
+					},1)
+					
+			};
+		this.olmove=function(index){
+			for(var j=0;j<oli.length;j++){
+				oli[j].className="";
+			}
+			oli[Math.ceil(index)].className="orange";
+			};
+		this.olclick=function(){
+			var arrays=new Array(oli.length);
+			for(var i=0;i<oli.length;i++){
+				arrays[i]=-(width*(i+1));
+				 (function(i){
+					 oli[i].onclick=function(){
+						 _this.olmove(i);
+						var timer=setInterval(function(){
+							
+							if(arrays[i]<currentValue){
+									if(currentValue-arrays[i]>width){
+									    currentValue-=30;
+									}else{
+										currentValue-=10;
+										}
+								}else if(arrays[i]>currentValue){
+									if(arrays[i]-currentValue>width){
+										currentValue+=30;
+									}else{
+										currentValue+=10;
+										}
+								}
+							if(arrays[i]==currentValue){
+								clearInterval(timer)
+								}	
+							_this.init(currentValue);
+							},1);
+						 }
+					 }(i));
+				}
+			};			
+	}
+		
+	function getStyle(element,attr){
+		if(element.currentstyle){
+			return element.currentstyle[attr];
+			}else{
+				return window.getComputedStyle(element,null)[attr];
+			}
+		}
+	prev.onclick=function(){
+			var obj={
+				decoration:"right",
+			}
+		run(obj)
+		}		
+	next.onclick=function(){
+			var  obj={
+				decoration:"left",
+			}
+			run(obj)
+		}
+				
+	function run(obj){
+		 var move=new Move(obj);	
+		 move.action();	
+		}	
+	     var  obj={}
+		 var move=new Move(obj);
+		 move.olclick();
+	
+	
+	  	
+</script>

@@ -1,0 +1,24 @@
+.error, .content h5 {
+  color: red; }
+
+.content artical h1 {
+  color: white; }
+.content artical p {
+  font-size: 16px; }
+.content aside {
+  background-color: yellow; }
+.content .a span span {
+  font-size: 20px; }
+.content:hover {
+  color: red; }
+.content h1, .content h2, .content h3 {
+  font-size: 16px; }
+.content div {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; }
+
+div {
+  border: 1px solid #e7e7e7; }
+
+/*# sourceMappingURL=1.css.map */

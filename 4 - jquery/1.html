@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div class="test"><p>hello，你好！</p></div>
+
+</body>
+	<script src="./jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		var str = "\\u6211\\u662Funicode\\u7F16\\u7801"; 
+
+		str = eval("'" + str + "'"); // "我是unicode编码"
+
+		console.log(str);
+	</script>
+</html>

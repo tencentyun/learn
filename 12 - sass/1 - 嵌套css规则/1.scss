@@ -1,0 +1,38 @@
+@mixin border-corners{
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+.error{
+    color: red;
+}
+
+
+.content {
+    artical{
+        h1{ color: white }
+        p{ font-size: 16px }
+    }
+    aside{ background-color: yellow }
+    .a{
+        span{
+            span{font-size: 20px;}
+        }
+    }
+    // 父元素的伪类的写法
+    &:hover{
+        color: red
+    }
+    h1, h2, h3{ font-size: 16px }
+    div{
+        @include border-corners
+    }
+    h5{
+        @extend .error
+    }
+    
+}
+$line-color: #e7e7e7;
+div{
+    border: 1px solid $line-color
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title>animation动画</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./bootstrap/dist/css/bootstrap.css">
+	<style type="text/css">
+		.box{
+		    width: 100px;
+		    height: 100px;
+		    background-color: lightskyblue;
+		    border: 1px solid #808080;
+		}
+	</style>
+</head>
+<body ng-controller='mainCtrl'>
+	<input type="checkbox" ng-model='isShow'>显示/隐藏<br><br>
+	<div class="box showBox" ng-if='isShow'></div>
+</body>
+	<script src="./jQuery/jquery-3.2.1.min.js"></script>
+	<script src="./angular-1.6.1/angular.js"></script>
+	<script src="./angular-1.6.1/angular-animate.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('myApp',['ngAnimate']);
+		app.controller('mainCtrl',['$scope',function ($scope){
+			 $scope.isShow = true;
+		}]);
+		app.animation('.showBox',function (){
+			return {
+				enter:function (element,done){
+				    element.css('display','none');
+					$(element).slideDown(2000,function (){
+						done();
+					});
+				},
+				leave:function (element,done){
+					$(element).fadeOut(2000,function (){
+						done();
+					})
+				}
+			}
+		})
+	</script>
+</html>

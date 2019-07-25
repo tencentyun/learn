@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>遍历数组</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 遍历数组
+		var arr1 = [10,12,23,34,45];
+		for(var i = 0 ; i < arr1.length ; i++){
+			console.log(arr1[i]);
+		}
+
+		// pop  删除数组的最后一个元素 并返回删除的元素值
+		var arr2 = new Array();
+		arr2[0] = 0;
+		arr2[1] = 1;
+		arr2[2] = 2;
+		console.log(arr2.pop());
+		// shift 删除原数组的第一个元素 并返回删除的元素值 
+		console.log(arr2.shift());
+
+		var arr3 = [1,2,3,4,5,6];
+		// splice(statr deletecount 添加的新元素) arr3数组的第二个元素开始 之后 删除两个 并返回一个新的数组[2,3]
+		console.log(arr3.splice(1,2,789)); // 2,3
+		console.log(arr3);   //1 789 4 5 6
+
+		console.log(arr3.slice(0,2)); //1  获取截到的字符为新数组
+
+		console.log(arr3.reverse());  //倒叙输出
+		console.log(arr3.sort());  //升序输出ASC码值
+
+		console.log(arr1.join('a'));
+		var str = 'Hello World';
+		console.log(str.split('e'));
+
+		// 数组去重
+		var arr5 = [1,'a','2','2','123','a'];
+		var arr6 = [];
+		for(var i = 0; i < arr5.length; i++){
+			var init = false;
+			for(var j = 0; j < arr6.length; j++){
+				if(arr5[i] == arr6[j]){
+					init = true;
+					break;
+				}
+			}
+			if(!init){
+				arr6.push(arr5[i]);
+			}
+		}
+		console.log(arr6);
+		
+		// 哈希表的办法
+		var hash = {};  // 建立一个hash表
+		var arr7 = [];  // 定义一个空数组
+		for(var i = 0; i < arr5.length; i++){
+			if (!hash[arr5[i]]) {  // 如果哈希表中没有当前项
+				hash[arr5[i]] = true;  // 存入哈希表
+				arr7.push(arr5[i]);
+			}
+		}
+		console.log(arr7);
+	</script>
+</body>
+</html>

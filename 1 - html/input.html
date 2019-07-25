@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>input</title>
+</head>
+<body>
+  <form>
+    <input type="text" name="" value="1234567890" onchange="textFun(this.name)">
+    <input type="password" name="">
+    <input type="file" name="" multiple="multiple">
+    <input type="reset" value="清空"> 
+  </form>
+
+  <!-- <form>
+    <input type="text" name="" list="same">
+    <datalist id="same">
+         <option>123</option>
+         <option>567</option>
+    </datalis>
+  </form> -->
+
+  <br>
+  <br>
+  <br>
+
+  <form oninput="o.value=r.value" novalidate="true">  
+    <input type="range" name="r">
+    <output name="o"></output>                    
+  </form>
+
+</body>
+<script type="text/javascript">
+  function textFun(val){
+    console.log(val)
+  }
+</script>
+</html>

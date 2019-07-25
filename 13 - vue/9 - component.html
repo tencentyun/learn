@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue 示例</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 全局组件 -->
+        <my-component></my-component>
+
+        <!-- 局部组件 -->
+        <sec-component></sec-component>
+
+        <!-- 受到html限制的标签，可以使用特殊的is属性来挂载组件 -->
+        <table>
+            <tbody is="third-component"></tbody>
+        </table>
+
+        <!-- 组件使用data,computed,methods里面的值 -->
+        <forth-component></forth-component>
+
+        <!-- 复用同一个组件 组件之间的值不受影响 -->
+        <five-component></five-component>
+        <five-component></five-component>
+        <five-component></five-component>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+
+        // 组件注册分为全局与局部注册，全局注册在任何Vue实例都可以使用
+        // 要在父实例里面使用这个组件，必须在实施创建前注册，之后就可以使用这个组件了
+        // 全局组件
+        Vue.component('my-component', {
+            template: '<div>全局注册组件</div>'
+        });
+
+        // 这种形式的组件data数据必须是函数return回来才可以取到
+        Vue.component('forth-component', {
+            template: '<div>{{ message }}</div>',
+            data: function (){
+                return {
+                    message: '组件使用data,computed,methods里面的值'
+                }
+            }
+        });
+
+        // 去外部的counter值时 三个复用的组件值时互相受影响的
+        var five = {
+            counter: 0
+        }
+        Vue.component('five-component', {
+            template: '<div @click="counter++">{{ counter }}</div>',
+            data: function (){
+                // 直接在这里return出去的值 是独立的
+                // return {
+                //     counter: 0
+                // }
+                // 这种值组件复用受影响
+                return five
+            }
+        })
+
+        var Child = {
+            template: '<div>局部注册组件</div>'
+        }
+        var third = {
+            template: '<div>受到HTML限制的标签</div>'
+        }
+        var app = new Vue({
+            el: '#app',
+            components: {
+                'sec-component': Child,
+                'third-component': third,
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

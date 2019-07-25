@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		<!-- ref绑定DOM节点 -->
+		<div ref='value' @click="clickFun">111</div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+		
+		new Vue({
+			el: '#app',
+			data: {},
+			methods: {
+				clickFun: function (){
+					// $refs访问全局的ref绑定的DOM节点
+					console.log(this.$refs.value.innerHTML);
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

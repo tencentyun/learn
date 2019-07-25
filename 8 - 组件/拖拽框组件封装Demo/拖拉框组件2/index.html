@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap-slider/bootstrap-slider.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="./index.css"> -->
+	<style type="text/css">
+		.slider.slider-horizontal {
+		    width: 100%;
+		    height: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<div style="margin-top: 100px">
+			 <input id="ex14" type="text" data-slider-ticks="[]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='[]' ticks_positions="[]" />
+		</div>
+      
+
+	</div>
+
+</body>
+<!-- <script src="../lib/angular/angular.js"></script> -->
+<script src="../lib/jQuery3.1.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../lib//bootstrap-slider/bootstrap-slider.min.js"></script>
+
+
+<script type="text/javascript">
+	$("#ex14").slider({
+	    ticks: [10, 100, 500, 1000, 2000],
+	    ticks_positions: [0, 25, 50, 75, 100],
+	    ticks_labels: ['10', '100', '500', '1000', '2000'],
+	    ticks_snap_bounds: 30
+	});
+</script>
+</html>

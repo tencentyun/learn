@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>let</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+	var a = [];
+	for (var i = 0; i < 10; i++) {
+		a[i] = function (){
+			console.log(i);
+		}
+	}
+	a[6]();				// 10  调用循环结束之后的作用域 var声明的变量已经向全局泄露
+
+	var a = [];
+	for (let i = 0; i < 10; i++) {
+		a[i] = function (){
+			console.log(i);
+		}
+	}
+	a[6]();				// 6  会去找函数调用时的作用域  let只在当前作用域里面的有效  循环变量是循环体的父作用域
+
+
+
+	// console.log(foo);			// undefined  发生变量提升
+	// var foo = 1;
+	// console.log(bar);		    // 报错 
+	// let bar = 2;
+
+
+
+	var tmp = new Date();
+	function fun(){
+		let n = 10;
+		console.log(tmp);
+		if(false){
+			var tmp = 'hello world';			// js最开始解析的时候 tmp提升作用域 但是并未实现解析数值
+		}
+		if(true){
+			console.log(n);
+		}
+	}
+	fun();
+
+	let abc = 1;
+	if (true) {
+		console.log(abc);
+	}
+
+
+</script>
+
+</body>
+</html>

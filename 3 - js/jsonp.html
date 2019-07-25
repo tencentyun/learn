@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <select>
+        <option value="101010100">北京</option>
+        <option value="101030100">天津</option>
+        <option value="101020100">上海</option>
+        <option value="101040100">重庆</option>
+    </select>
+
+    <input type="button" id="btn" value="提交">
+
+    <div id="show"></div>
+
+    <script>
+        function weather(data){
+            //console.log(data);   //拿到需要的json对象数据
+            var weatherArr = data.weather;
+            //console.log(weatherArr);
+
+            var temp = '';
+            for(var i=0; i<weatherArr.length; i++){
+                var time = weatherArr[i].date;
+                //console.log(time);
+                var info1 = weatherArr[i].info.day;
+                var info2 = weatherArr[i].info.night;
+
+                temp += '<span>'+time+'</span><ul><li>'+info1[1]+'</li><li>'+info1[2]+'</li><li>'+info1[3]+'</li><li>'+info1[4]+'</li></ul>'
+                        +'<ul><li>'+info2[1]+'</li><li>'+info2[2]+'</li><li>'+info2[3]+'</li><li>'+info2[4]+'</li></ul>';
+            }
+            var show = document.getElementById('show');
+            show.innerHTML =temp;
+
+        }
+    </script>
+
+    <script>
+        var code = document.getElementsByTagName('select')[0];
+        var btn = document.getElementById('btn');
+        btn.onclick = function (){
+            var value = code.value;
+            //console.log(value);
+            var script = document.createElement('script');
+            script.src = 'http://cdn.weather.hao.360.cn/api_weather_info.php?app=hao360&_jsonp=weather&code='+code.value;
+            document.body.appendChild(script);
+        }
+    </script>
+
+
+</body>
+</html>

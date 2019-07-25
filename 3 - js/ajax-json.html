@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+<input type="button" name="" id="btn" value="触发">
+<div id="show"></div>
+
+<script type="text/javascript">
+    var btn = document.getElementById('btn');
+    btn.onclick = function (){
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        }else{
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        console.log(xhr.readyState);
+
+        xhr.open('get','data.json',true);
+        console.log(xhr.readyState);
+
+        xhr.send();
+        console.log(xhr.readyState);
+
+        xhr.onreadystatechange = function (){
+            if (xhr.readyState == 4 && xhr.status == 200){
+                var data = xhr.responseText;
+                //console.log(data);   //拿到json的字符串形式
+
+                var json = JSON.parse(data);
+                console.log(json);    //拿到json对象  里面的数值为对象得属性 用点语法获取属性值
+
+                var num= json.total;
+                console.log(num);
+                var data1 = json.data;   //data的数组 遍历拿到属性值
+                console.log(data1);
+                var temp = '';
+                for(var i=0; i<num; i++){
+                    var name = data1[i].name;
+                    var category = data1[i].category;
+                    var desc = data1[i].desc;
+                    temp += '<ul><li>'+name+'</li><li>'+category+'</li><li>'+desc+'</li></ul>';
+                }
+                var show = document.getElementById('show');
+                show.innerHTML = temp;
+            }
+        }
+    }
+</script>
+</body>
+</html>

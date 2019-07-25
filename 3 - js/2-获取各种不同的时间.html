@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>时间</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+	<script type="text/javascript">
+		var time = new Date();
+
+		console.log(time); 					// Tue Aug 01 2017 14:23:17 GMT+0800 (中国标准时间)
+
+		var standardTime = time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate();
+		console.log(standardTime);
+
+		console.log(time.getFullYear());	// 获取当前的年份 2017
+
+		console.log(time.getMonth());		// 获取当前月份  7    （0-11）  0代表1月份
+
+		console.log(time.getDate());		// 获取当前日 1   (1-31)
+
+		console.log(time.getDay());			// 获取当前星期几 2  (0-6)   0代表星期日
+
+		console.log(time.getTime());		// 获取当前时间(从1970.1.1开始的毫秒数)  1501568934560
+
+		console.log(time.getHours());		// 获取当前小时数 (0-23)
+
+		console.log(time.getMinutes());		// 获取当前分钟数 (0-59)
+
+		console.log(time.getMilliseconds());   //获取当前毫秒数(0-999)  936
+
+		console.log(time.toLocaleDateString()); // 获取当前日期  年-月-日  2017-8-1
+
+		console.log(time.toLocaleTimeString()); // 获取当前时间 14:38:01
+
+		console.log(time.toLocaleString());		// 获取日期与时间 2017-8-1 14:38:01
+		
+		// 天数加1的函数  startData即为开始日期
+	    function dateAdd(startDate) {
+	        startDate = new Date(startDate);
+	        startDate = +startDate + 1000*60*60*24;
+	        startDate = new Date(startDate);
+	        var nextStartDate = startDate.getFullYear()+"-"+(startDate.getMonth()+1)+"-"+startDate.getDate();
+	        return nextStartDate;
+	    }
+
+
+	    // 月份相加
+	    function dateToDate(date) {
+	        var sDate = new Date();
+	        if (typeof date == 'object'
+	            && typeof new Date().getMonth == "function"
+	        ) {
+	            sDate = date;
+	        }
+	        else if (typeof date == "string") {
+	            var arr = date.split('-')
+	            if (arr.length == 3) {
+	                sDate = new Date(arr[0] + '-' + arr[1] + '-' + arr[2]);
+	            }
+	        }
+	        return sDate;
+	    }
+	    function addMonth(date, numaa) {		// data为当前的时间new Data()  numaa为加的数量
+	        numaa = parseInt(numaa);
+	        var sDate = dateToDate(date);
+	        var sYear = sDate.getFullYear();
+	        var sMonth = sDate.getMonth() + 1;
+	        var sDay = sDate.getDate();
+	        var eYear = sYear;
+	        var eMonth = sMonth + numaa;
+	        var eDay = sDay;
+	        while (eMonth > 12) {
+	            eYear++;
+	            eMonth -= 12;
+	        }
+	        var eDate = new Date(eYear, eMonth - 1, eDay);
+	        while (eDate.getMonth() != eMonth - 1) {
+	            eDay--;
+	            eDate = new Date(eYear, eMonth - 1, eDay);
+	        }
+	        return eDate;
+	    };
+	    var myDate = new Date();
+	    alert(addMonth(myDate, 1).Format("yyyy-MM-dd"));
+	</script>
+</html>

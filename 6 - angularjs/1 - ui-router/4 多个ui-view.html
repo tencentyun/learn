@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div ui-view="left"></div>
+
+    <div ui-view="right"></div>
+
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+
+<script>
+    angular.module('myApp',['ui.router'])
+            .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+
+                
+
+                $urlRouterProvider.otherwise('/main');
+
+                $stateProvider.state({
+                    name: 'main',
+                    url: '/main',
+                    template: '',           // js指定了views 则外部的template不起作用
+                    views:{                 // DOM指定了ui-view='left'的名字 则js必须使用views里面的template 外部的依然不起作用
+                        'left':{
+                            template:'<div>left'+'<div ui-view="content"></div></div>'
+                        },
+                        'right':{
+                            template:'<div>right'+'<div ui-view=""></div></div>'
+                        }
+                    }
+                }).state({
+                    name:'main.sub',
+                    url:'/sub',
+                    template:'<div>main.sub</div>'
+                }).state({
+                    name:'main.sub2',
+                    url:'/sub2',
+                    template:'',
+                    views:{
+                        'content':{
+                            template:'<div>content</div>'
+                        },
+                        '':{
+                            template:'<div>detail</div>'
+                        }
+                    }
+                })
+            }]);
+</script>
+
+</body>
+</html>

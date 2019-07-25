@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		{{count}}
+		<button @click='handClick()'>加1</button>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				count: 0
+			},
+			methods: {
+				handClick: function (){
+					this.count = this.count + 1
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

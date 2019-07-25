@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue 示例</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div id="app">
+        <my-component></my-component>
+
+        <my-component>
+            <p>分发的内容</p>
+            <p>更多分发的内容</p>
+            <h2 slot="header">标题</h2>
+        </my-component>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+
+        // 1、在子组件内使用特殊的<slot>元素就可以为这个子组件开启一个<slot>插槽，在父组件模板里，插入子组件
+        // (接上)标签内的所有内容将代替子组件<slot>标签及其它的内容
+
+        // 2、给<slot>元素指定一个name后可以分发多个内容，具名slot可以与单个slot共存
+        Vue.component('my-component', {
+            template: "<div>\
+            <slot>\
+            <p>如果父组件没有插入内容，默认显示这段内容</p>\
+            </slot>\
+            <slot name='header'></slot>\
+            </div>"
+        });
+
+        var app = new Vue({
+            el: '#app',
+
+        })
+    </script>
+
+</body>
+
+</html>

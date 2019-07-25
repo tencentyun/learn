@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+        <p>总数；{{ total }}</p>
+        <my-component
+            @increase='handleGetTotal'
+            @reduce='handleGetTotal'
+            v-model='total'></my-component>
+	</div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    
+    <script type="text/javascript">
+    
+        Vue.component('my-component', {
+            template:"\
+            <div>\
+            <button @click='handleIncrease'>+1</button>\
+            <button @click='handleReduce'>-1</button>\
+            <button @click='add'>加一</button>\
+            </div>",
+            data: function (){
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleIncrease: function (){
+                    this.counter++;
+                    this.$emit('increase', this.counter);
+                },
+                handleReduce: function (){
+                    this.counter--;
+                    this.$emit('reduce', this.counter);
+                },
+                add: function (){
+                    this.counter++;
+                    this.$emit('input', this.counter);       // 直接使用v-model绑定实现自定义事件
+                }
+            }
+        })
+		
+		var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            },
+            methods: {
+                handleGetTotal: function (total){
+                    this.total = total;
+                }
+            }
+        })
+
+	</script>
+
+</body>
+</html>

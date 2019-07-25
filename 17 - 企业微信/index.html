@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title>企业微信</title>
+	<meta charset="utf-8">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container" ng-controller='weixinCtrl'>
+
+	<!-- CorpID  通讯录Secret 应用管理助手Secret-->
+	<div class="row" style="margin-top: 20px">
+		<div class="input-group col-md-3" style="float: left;">
+		  	<span class="input-group-addon">CorpID</span>
+		  	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="wla5e0ce8a35" disabled="">
+		</div>
+
+		<div class="input-group col-md-3 col-md-offset-1" style="float: left;">
+		  	<span class="input-group-addon">通讯录Secret</span>
+		  	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" disabled="" value="PIzbVIDcoQ3SotfXUxE3iQ9aE0To3FlUPxHTlkqO5zA">
+		</div>
+
+		<div class="input-group col-md-3 col-md-offset-1" style="float: left;">
+		  	<span class="input-group-addon">应用管理助手Secret</span>
+		  	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" disabled="" value="5BaWEaXvSPaw-TItEI_62UaTaKsTVnrDEYEhKXovwc4">
+		</div>
+	</div>
+
+	<!-- 创建部门-->
+	<div class="row" style="margin-top: 20px">
+		<div class="col-md-2 input-group" style="float: left;">
+			<button type="button" class="btn btn-success">1、创建部门</button>
+		</div>
+		<div class="col-md-6 input-group" style="float: left;">
+			<textarea style="width: 500px;height: 200px;" ng-model="createPar"></textarea>
+			<div style="position: absolute;bottom: 6px;right: 1px;">
+				<button type="button" class="btn btn-success" ng-click='createParFun()'>提交</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 创建用户-->
+	<div class="row" style="margin-top: 20px">
+		<div class="col-md-2 input-group" style="float: left;">
+			<button type="button" class="btn btn-success">2、创建成员</button>
+		</div>
+		<div class="col-md-6 input-group" style="float: left;">
+			<textarea style="width: 500px;height: 200px;" ng-model='createUse'></textarea>
+			<div style="position: absolute;bottom: 6px;right: 1px;">
+				<button type="button" class="btn btn-success" ng-click='createUseFun()'>提交</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 创建应用-->
+	<div class="row" style="margin-top: 20px">
+		<div class="col-md-2 input-group" style="float: left;">
+			<button type="button" class="btn btn-success">3、创建应用</button>
+		</div>
+		<div class="col-md-6 input-group" style="float: left;">
+			<textarea style="width: 500px;height: 200px;" ng-model="createApp"></textarea>
+			<div style="position: absolute;bottom: 6px;right: 1px;">
+				<button type="button" class="btn btn-success" ng-click='createAppFun()'>提交</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+	<script src="https://cdn.bootcss.com/angular.js/1.6.7/angular.min.js"></script>
+	<script src="./module.js"></script>
+</html>

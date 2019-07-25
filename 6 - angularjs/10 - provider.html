@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+    <div ng-controller="DemoCtrl">
+
+
+    </div>
+
+
+</body>
+
+	<script src="./angular-1.6.1/angular.js"></script>
+
+    <script>
+
+        var myApp = angular.module('app',[]);
+
+        myApp.provider('firstPvr', function (){
+            this.name = 'Jack';
+            this.getName = function (){
+                return '第一部分普通成员属性或者方法调取的值' + this.name;
+            };
+            
+            this.$get = function (){
+                var name = this.name;
+                return function (){
+                    console.log('第二部分$get调取的值' + name);
+                };
+            };
+        });
+
+        // 自定义的provider服务在config调用 需要在服务名后面加上Provider  firstPvr --> firstPvrProvider
+        myApp.config(['firstPvrProvider', function (firstPvrProvider){
+            firstPvrProvider.name = 'Jane';
+        }]);
+
+        myApp.controller('DemoCtrl',['$scope', 'firstPvr', function ($scope, firstPvr){
+
+            // 直接调取provider的$get的返回值
+            firstPvr();
+           
+
+        }]);
+    </script>
+</html>

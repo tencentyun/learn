@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div ui-view>
+        <p>11111111111111111</p>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="angular-ui-router.js"></script>
+
+    <script>
+        angular.module('myApp',['ui.router'])
+                .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+
+                    $urlRouterProvider.otherwise('/main');
+
+                    $stateProvider.state({
+                        name:'main',
+                        url:'/main',
+                        template:'<div>main:{{title}}'+'<div ui-view></div></div>',
+                        controller:['$scope',function ($scope){
+                            $scope.title = 'state的父级';
+                        }]
+                    }).state({
+                        name:'main.sub',                        // 点语法
+                        url:'/sub',
+                        template:'<div>main2:{{title}}</div>',
+                        controller:['$scope',function ($scope){
+                            $scope.title = 'state的子级';
+                        }]
+                    }).state({
+                        name:'sub2',
+                        url:'/sub2',
+                        parent:'main',                         // parent
+                        template:'<div>main3:{{title}}</div>',
+                        controller:['$scope',function ($scope){
+                            $scope.title = 'state的子级2';
+                        }]
+                    });
+                }]);
+    </script>
+
+</body>
+</html>

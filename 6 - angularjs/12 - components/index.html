@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试components组件</title>
+</head>
+
+<body>
+    <div ng-controller="demoController as vm">
+
+        <!-- 声明的属性hero="ctrl.hero"是component中通信的关键 -->
+        <hero-detail hero="vm.hero" on-log="vm.test()"></hero-detail>
+
+    </div>
+</body>
+<script src="../angular-1.6.7/angular.min.js"></script>
+<script>
+    angular.module('myApp', []);
+    (function () {
+        'use strict';
+
+        angular
+            .module('myApp')
+            .controller('demoController', demoController);
+
+        demoController.$inject = [];
+
+        function demoController() {
+            var vm = this;
+            vm.hero = {
+                name: 'Jack',
+                age: 22
+            };
+
+            vm.test = function (){
+                console.log('点击事件');
+            }
+        }
+
+        function demoComponent() {
+            var vm = this;
+            vm.testCom = function (){
+                vm.onLog();
+            }
+
+        }
+
+        angular
+            .module('myApp')
+            .component('heroDetail', {
+                templateUrl: './heroDetail.html',
+                controller: demoComponent,
+                controllerAs: 'vm',
+                // bindings对象 表示component通信的协议
+                bindings: {
+                    hero: '=',
+                    onLog: '&'              // 表示绑定的函数
+                },
+            });
+    })();
+    
+</script>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1</title>
+
+    <link rel='stylesheet' type='text/css' href='./bootstrap-3.3.7/dist/css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='./1.css'>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 标签页切换-->
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">案件详情</a>
+            </li>
+            <li>
+                <a href="#examine" data-toggle="tab">审批详情</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- 案件详情-->
+            <div class="tab-pane fade in active" id="home">
+                <!-- 基本案件信息-->
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="success fixation1">案件编号</td>
+                        <td>S022017060207513329860</td>
+                        <td class="success">举报人单位及地址</td>
+                        <td>盘锦市兴隆台区</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">举报人</td>
+                        <td>张三</td>
+                        <td class="success">被举报人单位</td>
+                        <td>教育局</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">被举报人</td>
+                        <td>李四</td>
+                        <td class="success">被举报人行政划分</td>
+                        <td>双台子区</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">被举报人职务</td>
+                        <td>一般干部</td>
+                        <td class="success">举报问题大分类</td>
+                        <td>大公款旅游</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">被举报人级别</td>
+                        <td>科长</td>
+                        <td class="success">举报问题小分类</td>
+                        <td>小公款旅游</td>
+                    </tr>
+                </table>
+                <!-- 案件的标题与内容-->
+                <table class="table table-bordered" style="table-layout:fixed">
+                    <tr>
+                        <td class="success fixation1">标题</td>
+                        <td class="">XX区XX主任公款泰国游</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">内容</td>
+                        <td class="report-detail">XX区XX主任公公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游</td>
+                    </tr>
+                </table>
+
+                <!-- 附件预览  标签页切换-->
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#pic" data-toggle="tab">图片</a>
+                    </li>
+                    <li>
+                        <a href="#video" data-toggle="tab">视频</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- 图片附件预览-->
+                    <div class="tab-pane fade in active" id="pic">
+                        <ul class="accessory-ul">
+                            <li><img class="accessoryLi" src="./imgs/1.jpg" style="width: 100px;height: 60px"></li>
+                            <li><img class="accessoryLi" src="./imgs/2.jpg" style="width: 100px;height: 60px"></li>
+                            <li><img class="accessoryLi" src="./imgs/3.jpg" style="width: 100px;height: 60px"></li>
+                            <li><img class="accessoryLi" src="./imgs/1.jpg" style="width: 100px;height: 60px"></li>
+                            <li><img class="accessoryLi" src="./imgs/2.jpg" style="width: 100px;height: 60px"></li>
+                            <li><img class="accessoryLi" src="./imgs/3.jpg" style="width: 100px;height: 60px"></li>
+                        </ul>
+
+
+                        <div class="show-pic">
+                            <img class="showImg" src="./imgs/1.jpg" style="width: 500px;height: 280px">
+                        </div>
+                    </div>
+                    <!-- 视频附件预览-->
+                    <div class="tab-pane fade" id="video">
+                        <ul class="accessory-ul">
+                            <li><img src="./imgs/poster1.jpg" style="width: 100px;height: 60px"></li>
+                        </ul>
+                        <div class="show-pic">
+                            <video src="./video/1.mkv" controls="controls" style="width: 500px;height: 280px"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 审批详情-->
+            <div class="tab-pane fade" id="examine">
+                <!-- 审批详情展示-->
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="success fixation1">处理依据</td>
+                        <td>XX区XX主任公款泰国游已处理</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">拟定处理结果</td>
+                        <td class="report-detail">XX区XX主任公公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游</td>
+                    </tr>
+                </table>
+
+                <div class="examine-text">各级审批意见</div>
+
+                <!-- 各级审批意见-->
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="success fixation1">职位名称</td>
+                        <td>教育局</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批人</td>
+                        <td>王五</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批日期</td>
+                        <td>2017-6-4 10：12</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批意见</td>
+                        <td class="report-detail">XX区XX主任公公泰国游XX区XX游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游</td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="success fixation1">职位名称</td>
+                        <td>教育局</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批人</td>
+                        <td>王五</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批日期</td>
+                        <td>2017-6-4 10：12</td>
+                    </tr>
+                    <tr>
+                        <td class="success fixation1">审批意见</td>
+                        <td class="report-detail">XX区XX主任公公泰国游XX区XX游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游XX区XX主任公款泰国游</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+    <script src="./jquery/jQuery3.1.js"></script>
+    <script src="./bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script>
+        $(function (){
+            $('.accessoryLi').click(function (){
+                var picSrc = $(this).attr('src');
+                $('.showImg').attr('src',picSrc);
+            })
+        })
+    </script>
+</html>

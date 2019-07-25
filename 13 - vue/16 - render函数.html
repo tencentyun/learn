@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		<anchor :level="2" title="特性">特性</anchor>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+    
+		Vue.component('anchor', {
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                },
+                title: {
+                    type: String,
+                    default: ''
+                }
+            },
+            render: function (createElement){
+                return createElement(
+                    'h' + this.level,
+                    [
+                        createElement(
+                            'a',
+                            {
+                                domProps: {
+                                    href: '#' + this.title
+                                }
+                            },
+                            this.$slots.default
+                        )
+                    ]
+                )
+            }
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+		
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap-3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!--  input输入框介绍 -->
+<!-- .form-inline 使这个表单的下的input组件进行水平排列 -->
+<!-- .form-group 表明lable与input组成一个组件 每次控制输入框的样式 控制这个组件就可以 -->
+<!-- .form-control 输入框带有圆角 拿到焦点 边框发光的效果 -->
+<!-- .sr-only  是lable的值隐藏消失 -->
+<!-- .input-lg .input-sm  使input输入框变大变小 -->
+<!-- .has-success  .control-label  改变每一个表单组件的样式 -->
+
+<form class="form-inline">
+
+	<!-- 表单组件1 -->
+	<div class="form-group has-success">
+		<!-- <label class="sr-only">这是一个表单组件</label>  -->
+		<label class="control-label">这是一个表单组件</label> 	
+		<input type="text" name="" class="form-control" placeholder="这是一个文本输入框">
+		<!-- <input type="text" name="" class="form-control input-lg" placeholder="这是一个文本输入框">
+		<input type="text" name="" class="form-control input-sm" placeholder="这是一个文本输入框"> -->
+	</div>
+
+	<!-- 表单组件2 -->
+	<div class="form-group has-warning">
+		<label class="control-label">这是一个表单组件</label> 	
+		<select class="form-control">
+			<option>北京</option>
+			<option>北京</option>
+			<option>北京</option>
+		</select>
+	</div>
+
+	<!-- 表单组件3 -->
+	<div class="form-group has-error">
+		<label class="control-label">这是一个表单组件</label> 	
+		<textarea class="form-control"></textarea>
+	</div>			
+</form>
+
+<br><br><br>
+
+<!--  按钮组 -->
+<!-- .btn 按钮变成圆角 附带底色 使按钮柔和了很多 -->
+<!-- .btn-default 按钮的默认样式 带有一个hover效果-->
+<!-- .btn-primary 首选项样式 -->
+<!-- .btn-success 成功项样式 -->
+<!-- .btn-info  一般信息 -->
+<!-- .btn-warning  警告 -->
+<!-- .btn-danger  危险 -->
+<!-- .btn-link  按钮显示链接的样式 -->
+<!-- .btn-lg  .btn-sm  控制按钮的大小 -->
+<!-- .active  按钮按下的效果 -->
+<!-- .btn-block  使按钮的宽度占满全屏 适合手机的样式 -->
+<!-- disabled="disabled"  按钮呈现为默认状态 -->
+
+<button class="btn btn-default btn-lg">这是一个按钮</button>
+<button class="btn btn-success btn-sm">这是一个按钮</button>
+<button class="btn btn-primary active">这是一个按钮</button>
+<button class="btn btn-info btn-block">这是一个按钮</button>
+<button class="btn btn-warning" disabled="disabled">这是一个按钮</button>
+<button class="btn btn-danger">这是一个按钮</button>
+<button class="btn btn-link">这是一个按钮</button>
+
+<a class="btn btn-success" href="http://www.baidu.com" target="_blank">这是一个a标签按钮显示的效果</a>
+
+
+</body>
+</html>

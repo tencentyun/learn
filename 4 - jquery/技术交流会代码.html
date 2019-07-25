@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+	<div id="mainDiv1">111</div>
+    <div class="mainDiv2">222</div>
+    <input type="button" value="">
+    <div class="div1"></div>
+    <span></span>
+</body>
+    <script src="./jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+
+        var div = document.getElementById('mainDiv1');
+        var div2 = document.getElementsByClassName('mainDvi2')[0];
+        console.log(div);
+
+        console.log( $('#mainDiv1') );
+
+        $('.div1').css('background-color','yellow');
+
+        $('.div1').mouseover(function (){
+            $ ('.div1').animate({'width':'200px', 'height':'200px', 'opacity':'0.5'});
+        });
+
+
+
+        $('span').addClass('sapn1');
+
+        $('.div1').html('<span>333</span>');
+
+        $.ajax({
+            type:'post',               // post请求
+            url:'http://121.42.37.55:8085/api/vacard',         // 发送请求地址
+            data:JSON.stringify({				//是一个对象，，主要用于post请求
+                "idcard":"362527199303104918"
+            }),
+            contentType : 'application/json',
+            dataType:'json',              // 预期服务器返回的数据类型
+            success:function (data){
+                console.log(data);
+            },
+            error:function (jqXHR){
+                console.log('响应码'+jqXHR.status);
+            }
+        });
+
+
+    </script>
+</html>

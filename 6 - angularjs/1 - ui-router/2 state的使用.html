@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+    <title>ui-router</title>
+    <meta charset="utf-8">
+</head>
+<body ng-controller="Ctrl">
+
+<div ui-view></div>
+
+
+<!--路由的三种访问方式-->
+<a href="" ui-sref="main">main</a>
+
+<a href="#!/main2">main2</a>
+
+<a href="" ng-click="gomain3()">main3</a>
+
+
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+
+<script type="text/javascript">
+    angular.module('myApp',['ui.router'])
+            .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
+
+                // 跳转，重定向，默认url
+                $urlRouterProvider.otherwise('/main');
+
+                // 定义路由规则
+                // 多个state在同一个页面使用
+                $stateProvider.
+                        state({
+                            name:'main',
+                            url:'/main',
+                            template:'<div>{{title}}</div>',
+                            controller:['$scope',function($scope){
+                                $scope.title = 'main:ui-router的基本使用';
+                            }]
+                        })
+                        .state({
+                            name:'main2',
+                            url:'/main2',
+                            template:'<div>{{title}}</div>',
+                            controller:function ($scope){
+                                $scope.title = 'main2:ui-router';
+                            }
+                        })
+                        .state({
+                            name:'main3',
+                            url:'/main3',
+                            template:'<div>{{title}}</div>',
+                            controller:function ($scope){
+                                $scope.title = 'main3:ui-router';
+                            }
+                        });
+            }])
+            .controller('Ctrl',['$scope','$state',function ($scope,$state){
+                $scope.gomain3 = function (){
+                    $state.go('main3');
+                }
+            }]);
+</script>
+</body>
+</html>

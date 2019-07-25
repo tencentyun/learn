@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+        <input type="text" v-focus>
+        
+        <div v-test:msg.a.b="message"></div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+        
+        Vue.directive('focus', {
+            // inserted 在元素插入父节点时就调用
+            inserted: function (el){
+                // 聚焦元素 
+                // el指令所绑定的元素 可以直接用来操作DOM
+                // binding 一个对象 可以包含多个属性：name value oldValue expression arg modifiers
+                // vnode Vue编译生成的虚拟节点
+                // oldVnode 上一个虚拟节点尽在update和componentUpdated钩子中可用
+                el.focus();
+            }
+        });
+
+        Vue.directive('test', {
+            bind: function (el, binding, vnode){
+                var keys = [];
+                for(var i in vnode){
+                    keys.push(i);
+                }
+                el.innerHTML = 
+                ' name: '       + binding.name + ' <br> ' + 
+                ' value: '      + binding.value + ' <br> ' + 
+                ' expression: ' + binding.expression + ' <br> ' +
+                ' argument: '   + binding.arg + ' <br> ' +
+                ' modifiers: '  + JSON.stringify(binding.modifiers) + ' <br> ' +
+                ' vnode keys: ' + keys.join(', ')
+            }
+        })
+
+		new Vue({
+			el: '#app',
+            data: {
+                message: 'some text'
+            }
+		});
+
+	</script>
+
+</body>
+</html>

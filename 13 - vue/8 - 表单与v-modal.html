@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue 示例</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- text -->
+        <input v-model='name' type="text" name="">
+        <h1>{{name}}</h1>
+
+        <!-- radio -->
+        <input type="radio" value="html" v-model="picked">
+        <label for="">html</label>
+        <input type="radio" value="js" v-model="picked">
+        <label for="">js</label>
+        <input type="radio" value="css" v-model="picked">
+        <label for="">css</label>
+        <p>您选择的是{{picked}}</p>
+
+        <!-- checkbox -->
+        <!-- 勾选的值自动push到checked的数组里面 -->
+        <input type="checkbox" value="html" v-model="checked" name="" id="">
+        <label for="">html</label>
+        <input type="checkbox" value="js" v-model="checked" name="" id="">
+        <label for="">js</label>
+        <input type="checkbox" value="css" v-model="checked" name="" id="">
+        <label for="">css</label>
+        <p>您选取的是{{checked}}</p>
+
+        <!-- select -->
+        <!-- select 优先匹配value里面的值 value没值 则会匹配text值 -->
+        <!-- multiple 可以实现多选 -->
+        <select v-model="selected" name="" id="">
+            <option value="html">html</option>
+            <option value="js">js</option>
+            <option value="css">css</option>
+        </select>
+        <p>您选的是：{{selected}}</p>
+
+        <select v-model="selected2" name="" id="">
+            <option v-for="option in options" :value="option.value">{{option.value}}</option>
+        </select>
+        <p>您选的是：{{selected2}}</p>
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                picked: 'html',
+                checked: ['html', 'js'],
+                selected: 'html',
+                selected2: 'html',
+                options: [
+                    {
+                        text: 'HTML',
+                        value: 'html'
+                    }, {
+                        text: 'JavaScript',
+                        value: 'js'
+                    }, {
+                        text: 'CSS',
+                        value: 'css'
+                    }
+                ]
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

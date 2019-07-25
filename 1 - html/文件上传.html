@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input id="file-selector" type="file">
+    <select>
+        <option><span>1</span></option>
+        <option><span>12</span></option>
+    </select>
+</body>
+    <script src="./jQuery3.1.js"></script>
+    <script src="./cos-js-sdk-v5.min.js"></script>
+    <script>
+        var Bucket = 'test-1250000000';
+        var Region = 'ap-guangzhou';
+
+        // 初始化实例
+        var cos = new COS({
+            getAuthorization: function (options, callback) {
+                // 异步获取签名
+                $.get('http://172.16.2.101:8085/bucket/uploadKey2', {
+                    method: (options.Method || 'get').toLowerCase(),
+                    pathname: '/' + (options.Key || '')
+                }, function (authorization) {
+                    callback(authorization);
+                }, 'text');
+            }
+        });
+
+        // 监听选文件
+        document.getElementById('file-selector').onchange = function () {
+            
+            var file = this.files[0];
+            console.log(file);
+            if (!file) return;
+
+            // 分片上传文件
+            cos.sliceUploadFile({
+                Bucket: Bucket,
+                Region: Region,
+                Key: file.name,
+                Body: file,
+            }, function (err, data) {
+                console.log(err, data);
+            });
+
+        };
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.main-wrapper {
+		    float: left;
+		    width: 100%;
+		}
+		.main {
+		    height: 300px;
+		    margin-left: 210px;
+		    margin-right: 190px;
+		    background-color: rgba(255, 0, 0, .5);
+		}
+		.sub {
+		    float: left;
+		    width: 200px;
+		    height: 300px;
+		    margin-left: -100%;
+		    background-color: rgba(0, 255, 0, .5);
+		}
+		.extra {
+		    float: left;
+		    width: 180px;
+		    height: 300px;
+		    margin-left: -180px;
+		    background-color: rgba(0, 0, 255, .5);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="main-wrapper">
+
+	    <div class="main">1相对于最近的已定位的祖先元素, 有已定位(指position不是static的元素)祖先元素, 以最近的祖先元素为参考标准。如果无已定位祖先元素, 以body元素为偏移参照基准, 并且它会随着页面滚动而移动。完全脱离了标准文档流。随即拥有偏移属性和z-index属性。
+	    </div>
+
+	</div>
+
+	<div class="sub">2相对于最近的已定位的祖先元素, 有已定位(指position不是static的元素)祖先元素, 以最近的祖先元素为参考标准。如果无已定位祖先元素, 以body元素为偏移参照基准, 并且它会随着页面滚动而移动。完全脱离了标准文档流。随即拥有偏移属性和z-index属性。
+	</div>
+
+	<div class="extra">3相对于最近的已定位的祖先元素, 有已定位(指position不是static的元素)祖先元素, 以最近的祖先元素为参考标准。如果无已定位祖先元素, 以body元素为偏移参照基准, 并且它会随着页面滚动而移动。完全脱离了标准文档流。随即拥有偏移属性和z-index属性。
+	</div>
+</body>
+</html>

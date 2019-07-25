@@ -1,0 +1,78 @@
+.xufei-info-item {
+    margin-bottom: 16px;
+    width: 100%;
+}
+.xufei-item-info {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.xufei-progress-box {
+    height: 20px;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+}
+.progress {
+    width: 100%;
+    height: 7px;
+}
+.xufei-progress-box .pull-btn {
+    display: block;
+    height: 27px;
+    width: 17px;
+    text-align: center;
+    line-height: 27px;
+    border: 1px solid #4d9bdb;
+    color: #4d9bdb;
+    background: #dbf2ff;
+    position: absolute;
+    left: 0;
+    top: 4%;
+    z-index: 100;
+    margin-left: -8px;
+    border-radius: 3px;
+}
+.xufei-progress-box .pull-btn:hover {
+    cursor: pointer;
+}
+.xufei-progress-box .progress-zw {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+.xufei-progress-box .xufei-progress-ruler {
+    width: 100%;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+.xufei-progress-box .xufei-progress-ruler .ruler-step {
+    float: left;
+    width: 25%;
+    height: 5px;
+    display: inline-block;
+    border-right: 2px solid #d1d5de;
+    text-align: right;
+}
+.xufei-progress-box .xufei-progress-ruler .ruler-step span {
+    display: inline-block;
+    margin-right: -30px;
+    padding: 10px;
+}
+.progres-value-tip {
+    margin-left: 15px;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    right: -110px;
+}
+.progres-value-tip input {
+    text-align: center;
+    width: 57px;
+    height: 27px;
+    color: #4d9bdb;
+    font-weight: 700;
+}

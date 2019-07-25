@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		<ul>
+			<li v-for='book in books'>{{book.name}}</li>
+		</ul>
+		<button @click.stop="doThis">事件修饰符</button>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+		
+		new Vue({
+			el: '#app',
+			data: {
+				books: [
+					{name: '1'},
+					{name: '2'},
+					{name: '3'}
+				]
+			},
+			methods: {
+				doThis : function (){
+					console.log(1);
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

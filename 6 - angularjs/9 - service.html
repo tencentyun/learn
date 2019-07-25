@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+    <div ng-controller="DemoCtrl">
+
+
+    </div>
+
+
+</body>
+
+	<script src="./angular-1.6.1/angular.js"></script>
+
+    <script>
+
+        var myApp = angular.module('app',[]);
+
+        myApp.service('firstSve',['$interval', function ($interval){
+            this.outputMsg = function (){
+                var i = 0;
+                // 自定义服务firstSve里面注入内置服务$interval  $interval间歇调用服务
+                $interval(function (){
+                    i++;
+                    console.log(i);
+                },3000)
+            }
+        }])
+
+        myApp.controller('DemoCtrl',['$scope', 'firstSve', function ($scope, firstSve){
+
+            firstSve.outputMsg();
+
+        }]);
+    </script>
+</html>

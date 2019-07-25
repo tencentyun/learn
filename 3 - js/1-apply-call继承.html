@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>apply-call实现继承</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<script type="text/javascript">
+		function person(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		function student(name,age,love){
+			// person.call(this,name,age);   // call this表示继承的对象 name，age为参数，可以有多个
+			person.apply(this,[name,age])    // apply this表示继承的对象 [name,age]为类数组 只可以有一个
+			this.love = love;
+		}
+
+		var Student = new student('jane','23','苹果');
+
+		// 打印Student对象
+		console.log(Student);
+	</script>
+
+</body>
+</html>

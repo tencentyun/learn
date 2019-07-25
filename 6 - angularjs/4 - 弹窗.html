@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.ng-cloak{
+			display:none !important;
+		}
+		#bg-login{
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.3;
+            opacity:0.3;
+            /*IE下使用*/
+            filter: alpha(opacity=30);
+        }
+        #show-login{
+            display: none;
+            position: fixed;
+            top: 35%;
+            left: 30%;
+            width: 560px;
+            height: 260px;
+            padding: 8px;
+            border: 8px solid #E8E9F7;
+            background-color: #DDFFFF;
+            z-index:1002;
+        }
+        .close-login-img{
+            width: 50px;
+            height: 50px;
+            float: right;
+            cursor: pointer;
+        }
+	</style>
+</head>
+<body ng-controller="industryProCtrl">
+
+    <button ng-click="onClick()">123</button>
+    <div id="bg-login" ng-style="bgLogin"></div>
+        <div id="show-login" ng-style="showLogin">
+            <div class="close-login-img" ng-click="closeLoginFun()">
+                <img ng-mouseover="mouseoverFun()" ng-mouseleave="mouseoutFun()" ng-style="bigImg" class="close-login-btn" src="./imgs/close.png">
+            </div>
+            <p>亲,登录之后才可以查看哟,请登录！</p>
+        </div>
+
+</body>
+
+	<script src="./angular-1.6.1/angular.js"></script>
+
+	<script type="text/javascript">
+
+		var app = angular.module('myApp',[]);
+		
+		app.controller('industryProCtrl',['$scope',function ($scope){
+
+			$scope.onClick = function (points) {	     
+		        $scope.bgLogin = {
+		            'display':'block',
+		            'height':document.documentElement.scrollHeight+'px'
+		        };
+		        $scope.showLogin = {'display':'block'};
+	    	};
+
+			// 关闭提示登录的盒子
+		    $scope.closeLoginFun = function (){
+		        $scope.bgLogin = {'display':'none'};
+		        $scope.showLogin = {'display':'none'};
+		    };
+		    $scope.mouseoverFun = function (){
+		        $scope.bigImg = {'transform':'scale(1.4)'};
+		    };
+		    $scope.mouseoutFun = function (){
+		        $scope.bigImg = {'transform':'scale(1.0)'};
+		    };  
+
+		}]);
+	</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vue 示例</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div id="app">
+        <child-component>
+            <template scope='props'>
+                <p>来自父组件的内容</p>
+                <p>{{ props.msg }}</p>
+            </template>
+        </child-component>
+
+        <my-list :books='books'>
+            <!-- 作用域插槽也可以是具名的slot -->
+            <template slot='book' scope='props'>
+                <li>{{ props.bookName }}</li>
+            </template>
+        </my-list>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script type="text/javascript">
+        // 子组件模板在<slot>元素上有一个了类似props传递数据给组件的写法msg='xxx'，将数据传到插槽，父组件使用
+        // template元素，而且拥有一个scope='props'的特性，这里的props只是一个临时变量，就像v-for='item in items'
+        // 里面的item一样，template内可以通过临时变量props来访问子组件插槽的数据msg
+        Vue.component('child-component', {
+            template: "\
+            <div class='container'>\
+            <slot msg='来自子组件的内容'></slot>\
+            </div>"
+        })
+
+        // 作用域插槽的使用场景就是既可以复用子组件的slot，又可以是slot内容不一致，如果下例子还在其他的组件里面使用
+        // <li>的内容渲染权是由使用者掌握，而数据却可以通过临时变量(比如props)从子组件内获取
+        Vue.component('my-list', {
+            props: {
+                books: {
+                    type: Array,
+                    default: function (){
+                        return [];
+                    }
+                }
+            },
+            template:"\
+            <ul>\
+            <slot name='book' v-for='book in books' :book-name='book.name'>\
+            默认slot内容\
+            </slot>\
+            </ul>"
+        })
+        
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {name: '《vue.js实战》'},
+                    {name: '《JavaScript语言精粹》'},
+                    {name: '《vue.js高级程序设计》'}
+                ]
+            }
+        })
+    </script>
+
+</body>
+
+</html>

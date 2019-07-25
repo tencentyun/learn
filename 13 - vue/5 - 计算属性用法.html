@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app"> 
+		总价：{{prices}}
+		<div>{{ fullName }}</div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+		
+		var app = new Vue({
+			el: '#app',
+			data: {
+				package1: [{
+					name: 'iphone7',
+					price: 7199,
+					count: 2
+				},{
+					name: 'ipad',
+					price: 2888,
+					count: 1
+				}],
+				package2: [{
+					name: 'apple',
+					price: 3,
+					count: 5
+				},{
+					name: 'banana',
+					price: 2,
+					count: 10
+				}],
+				firstName: 'Jack',
+				lastName: 'Li'
+			},
+			filters: {
+
+			},
+			methods: {
+				
+			},
+			computed: {
+				prices: function (){
+					var prices = 0;
+					for (var i = 0; i < this.package1.length; i++) {
+						prices += this.package1[i].price*this.package1[i].count;
+					}
+					for (var i = 0; i < this.package2.length; i++) {
+						prices += this.package2[i].price*this.package2[i].count;
+					}
+					return prices;
+				},
+				fullName: {
+					get: function (){
+						console.log('我被执行了');
+						return this.firstName + ' ' + this.lastName;
+					},
+					set: function (val){
+						// this.firstName = val;
+						console.log(val);
+					}
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

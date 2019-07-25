@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+    <div ng-controller="DemoCtrl">
+
+
+    </div>
+
+
+</body>
+
+	<script src="./angular-1.6.1/angular.js"></script>
+
+    <script>
+
+        var myApp = angular.module('app',[]);
+
+        // value与constant是Angular另外两个相对简单的可注入类型，用于保存应用程序的相关信息，
+        // 从某种程度上讲，它们有点类似于面向过程语言中的全局变量概念
+        myApp.constant('Version', '1.0.0');
+        myApp.value('CONFIG', 'app.properties');
+        
+        myApp.controller('DemoCtrl',['Version', 'CONFIG', function (Version, CONFIG){
+
+            console.log('app version -->' + Version);
+            console.log('config file -->' + CONFIG);
+           
+
+        }]);
+    </script>
+</html>

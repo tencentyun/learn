@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>  
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./bootstrap-3.3.7/dist/css/bootstrap.css">
+	<script src="./bootstrap-3.3.7/dist//js/jquery-3.1.1.min.js"></script>
+	<script src="./bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+</head>
+<body>
+
+	<!-- data属性控制页面交互 -->
+	<!-- $(document).off('.data-api')解除属性绑定-->
+	<button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+		弹窗
+	</button>
+
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+						<span class="sr-only">关闭弹窗</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">标题</h4>
+				</div>
+
+				<div class="modal-boday">
+					<p>慕课网</p>
+					<p>慕课网</p>
+				</div>
+
+				<div class="modal-footer">
+					<button class="btn btn-dafault" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

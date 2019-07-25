@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue 示例</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		
+		<first-com message="来自父组件的数据"></first-com>
+		<sec-com warning-text="提示信息"></sec-com>
+
+		<!-- 使用语法糖 父传子获取到得是数组  不使用语法糖  获取的是字符串 -->
+		<three-com :message2="[1, 2, 3]"></three-com>
+
+		<four-com :init-count="2"></four-com>
+	</div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<script type="text/javascript">
+		
+		// 普通组件
+        Vue.component('first-com', {
+            props: ['message'],
+            template: '<div>{{ message }}</div>'
+        });
+
+		// 驼峰标识组件
+		Vue.component('sec-com', {
+			props: ['warningText'],		// 驼峰标识在html里面使用小短线
+			template: '<div>{{ warningText }}</div>'
+		});
+
+		// 父传子数组
+		Vue.component('three-com', {
+			props: ['message2'],
+			template: '<div>{{ message2.length }}</div>'
+		});
+
+		// 单向流数据
+		Vue.component('four-com', {
+			props: ['initCount'],
+			template: '<div>{{ count }}</div>',
+			data: function (){
+				return {
+					count: this.initCount
+				}
+			}
+		})
+
+        var app = new Vue({
+            el: '#app'
+        })
+	</script>
+
+</body>
+</html>

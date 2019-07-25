@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+    <title>ui-router</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <div ui-view></div>
+
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+
+<script type="text/javascript">
+    angular.module('myApp',['ui.router'])
+            .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
+
+                $urlRouterProvider.otherwise('/main');
+
+                $stateProvider
+                        .state('main',{
+                            url:'/main',
+                            abstract:'true',    // 抽象state
+                            template:'<div>{{title}}'+'<div ui-view=""></div></div>',
+                            controller:['$scope',function($scope){
+                                $scope.title = '抽象state';
+                            }]
+                        })
+                        .state({
+                            name:'main.sub',
+                            url:'/sub',
+                            template:'',
+                            views:{
+                                '':{
+                                    template:'<div>抽象state 只有访问子级的时候 才会显示父子级所有的内容 只访父级访问的内容为空</div>'
+                                }
+                            }
+                        })
+            }])
+</script>
+</body>
+</html>

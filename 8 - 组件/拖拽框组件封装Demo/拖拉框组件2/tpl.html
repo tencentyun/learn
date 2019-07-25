@@ -1,0 +1,49 @@
+<div class="xufei-info-item xufei-set-band">
+
+    <!-- 进度条 -->
+    <div class="xufei-item-info">
+        <!-- 进度条外框 -->
+        <div class="xufei-progress-box">
+
+            <!-- 进度条图拉按钮 -->
+            <span class="pull-btn">
+                <i class="fa fa-sliders"></i>
+            </span>
+
+            <!-- // 占位，放置选中标尺 -->
+            <div class="progress-zw"></div>
+
+            <!-- 进度条下方标尺 -->
+            <div class="xufei-progress-ruler">
+                <span style="position:absolute;display: inline-block;top:10px;">0Mbps</span>
+                <span class="ruler-step" style="border-left: 2px solid #d1d5de;">
+                    <span>{{data.band_labels[0]}}Mbps</span>
+                </span>
+                <span class="ruler-step">
+                    <span>{{data.band_labels[1]}}Mbps</span>
+                </span>
+                <span class="ruler-step">
+                    <span>{{data.band_labels[2]}}Mbps</span>
+                </span>
+                <span class="ruler-step">
+                    <span>{{data.band_labels[3]}}Mbps</span>
+                </span>
+            </div>
+
+            <!-- 进度条轨道 -->
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemax="100"aria-valuemin="0">
+                    <span class="sr-only">60% Complete</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 进度条值信息 -->
+        <div class="progres-value-tip">
+            <input class="xu-fei-inp" maxlength="4" type="text" ng-model="inputNum.dataNum">
+            <label>Mbps</label>
+        </div>
+
+    </div>
+</div>
