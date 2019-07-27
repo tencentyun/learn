@@ -1,0 +1,23 @@
+
+.nav-1{
+  display: flex;
+  align-content: flex-start;              //  子元素水平方向排版 
+  height: 300px;
+  border: 2px solid #e7e7e7;
+  .item-1{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: yellow;
+  }
+  .item-2{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+  }
+}
+
+

@@ -1,0 +1,75 @@
+.nav-1{
+  display: flex;
+  justify-content: flex-start;      // 子元素左对齐  类似于float：left
+  .item-1{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: yellow;
+  }
+  .item-2{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+  }
+}
+
+.nav-2{
+  display: flex;
+  justify-content: flex-end;      // 子元素右对齐  right
+  .item-1{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: yellow;
+  }
+  .item-2{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+  }
+}
+
+.nav-3{
+  display: flex;
+  justify-content: space-between;      // 两端对齐
+  .item-1{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: yellow;
+  }
+  .item-2{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+  }
+}
+
+.nav-4{
+  display: flex;
+  justify-content: space-around;      // 两端对齐
+  .item-1{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: yellow;
+  }
+  .item-2{
+    width: 300px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+  }
+}
