@@ -13,27 +13,11 @@
 		</ul>
 		<button @click.stop="doThis">事件修饰符</button>
 	</div>
-
-  <!-- <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script> -->
   
 	<script type="text/javascript">
 		
-		new Vue({
-			el: '#app',
-			data: {
-				books: [
-					{name: '1'},
-					{name: '2'},
-					{name: '3'}
-				]
-			},
-			methods: {
-				doThis : function (){
-					console.log(1);
-				}
-			}
-		});
-
+    var arr = [1, 2, 3, 3, 4, 5, 5, 6]
+    console.log(remove(arr, 3))
 	</script>
 
 </body>
