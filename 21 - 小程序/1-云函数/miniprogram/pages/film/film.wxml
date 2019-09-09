@@ -1,0 +1,17 @@
+<view class="movie-list" wx:for="{{movieList}}" wx:key="{{index}}">
+  <view class="movie-img">
+    <image src="{{item.images.small}}" class="movie-img"></image>
+  </view>
+  <view class="movie-info">
+    <view class="movie-title"></view>
+    <view>
+      <text>观众评分:  </text>
+      <text></text>
+    </view>
+    <view></view>
+    <view>
+      <text>年份:  </text>
+      <text></text>
+    </view>
+  </view>
+</view>
