@@ -21,17 +21,26 @@ import { actionCreators } from './store'
 class Header extends Component {
 
   getSearchInfo(){
-    if (this.props.focuse) {
+    const { focuse, list, page, total, mouseIn, handleEnter, handeLeaver, handleChange } = this.props
+    const newList = list.toJS();       // 这里的list是一个immutable对象 使用toJs转换为简单的js对象
+    const pageList = []
+    if(newList.length){
+      for(let i = (page - 1) * 10; i < page * 10; i++){
+        pageList.push(
+          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+        )
+      }
+    }
+    
+    if (focuse || mouseIn) {
       return (
-        <SearchInfo>
+        <SearchInfo 
+          onMouseEnter={handleEnter}
+          onMouseLeave={handeLeaver}>
           <SearchInfoLeft>热门搜索</SearchInfoLeft>
-          <SearchInfoRight>换一批</SearchInfoRight>
+          <SearchInfoRight className='right' onClick={ () => { handleChange(page, total) }}>换一批</SearchInfoRight>
           <SearchInfoList>
-            {
-              this.props.list.map((item) => {
-                return <SearchInfoItem key={item}>{item}</SearchInfoItem>
-              })
-            }
+            { pageList }
           </SearchInfoList>
         </SearchInfo>
       )
@@ -41,6 +50,7 @@ class Header extends Component {
   }
   
   render() {
+    const { focuse, mouseIn, handleFocus, handleBlur, list } = this.props
     return (
       <HeaderWrapper>
         <Logo></Logo>
@@ -52,14 +62,14 @@ class Header extends Component {
             <i className='iconfont'>&#xe636;</i>
           </NavItem>
           <SearchWrapper>
-            <CSSTransition in={this.props.focuse} timeout={200} classNames="slider">
+            <CSSTransition in={focuse || mouseIn} timeout={200} classNames="slider">
               <NavSearch
-                className={this.props.focuse ? 'focuse' : ''}
-                onFocus={this.props.handleFocus}
-                onBlur={this.props.handleBlur}>
+                className={focuse || mouseIn ? 'focuse' : ''}
+                onFocus={() => handleFocus(list)}
+                onBlur={handleBlur}>
               </NavSearch>
             </CSSTransition>
-            <i className={this.props.focuse ? 'iconfontBg iconfont' : 'iconfont'}>&#xe651;</i>
+            <i className={focuse || mouseIn ? 'iconfontBg iconfont' : 'iconfont'}>&#xe651;</i>
             {this.getSearchInfo()}
           </SearchWrapper>
         </Nav>
@@ -78,7 +88,10 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     focuse: state.getIn(['header', 'focuse']),         // 把store里面的数据映射到props上 state.get('header').get('focuse')
-    list: state.getIn(['header', 'list'])
+    mouseIn: state.getIn(['header', 'mouseIn']), 
+    list: state.getIn(['header', 'list']),
+    page: state.getIn(['header', 'page']),
+    total: state.getIn(['header', 'total']),
   }
 }
 
@@ -86,14 +99,31 @@ const mapDispathToProps = (dispath) => {
   return {
 
     // 聚焦
-    handleFocus() {
-      dispath(actionCreators.getSearchInfo())
+    handleFocus(list) {
+      (list.size === 0) && dispath(actionCreators.getSearchInfo())
       dispath(actionCreators.searchFocuse())
     },
 
     // 失焦
     handleBlur() {
       dispath(actionCreators.searchBlur())
+    },
+
+    handleEnter(){
+      dispath(actionCreators.mouseIn())
+    },
+
+    handeLeaver(){
+      dispath(actionCreators.mouseLeaver())
+    },
+
+    handleChange(page, total){
+      if(page < Math.floor(total/10)){
+        dispath(actionCreators.changePage(page + 1))
+      }else{
+        dispath(actionCreators.changePage(1))
+      }
+      
     }
   }
 }

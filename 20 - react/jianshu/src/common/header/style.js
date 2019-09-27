@@ -112,6 +112,9 @@ export const SearchInfoRight = styled.span`
   float: right;
   font-size: 14px;
   color: #969696;
+  &.right{
+    cursor: pointer;
+  }
 `;
 
 export const SearchInfoList = styled.div`
