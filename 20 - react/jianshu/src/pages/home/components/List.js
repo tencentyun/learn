@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   ListWrapper,
   ListItem,
@@ -16,7 +17,9 @@ class List extends Component {
             return (
               <ListItem key={item.get('id')}>
                 <ListInfo>
-                  <h3>{item.get('title')}</h3>
+                  <Link to={'/detail/' + item.get('id')}>
+                    <h3>{item.get('title')}</h3>
+                  </Link>
                   <p>{item.get('desc')}</p>
                 </ListInfo>
                 <img className='pic' src={item.get('imgUrl')} alt="" />

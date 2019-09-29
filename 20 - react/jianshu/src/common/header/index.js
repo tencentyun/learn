@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'    // concent使store和header建立连接
+import { Link } from 'react-router-dom'
 import {
   HeaderWrapper,
   Logo,
@@ -53,7 +54,9 @@ class Header extends Component {
     const { focuse, mouseIn, handleFocus, handleBlur, list } = this.props
     return (
       <HeaderWrapper>
-        <Logo></Logo>
+        <Link to='/'>
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className='left'>首页</NavItem>
           <NavItem className='left'>下载App</NavItem>
