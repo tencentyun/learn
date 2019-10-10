@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import Header from './components/Header'
+import Footer from './components/Footer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// function App() {
+//   return (
+//     <div className="App">
+     
+//     </div>
+//   );
+// }
+
+class App extends Component{
+  render(){
+    return (
+      <Row>
+        <Col span={3}>left</Col>
+        <Col span={21}>
+          <Header></Header>
+          <Row>内容</Row>
+          <Footer></Footer>
+        </Col>
+      </Row>
+    )
+  }
 }
 
 export default App;
