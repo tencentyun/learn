@@ -1,8 +1,11 @@
-.App {
+@import './style/variable.scss';
 
-  .App-header {
-    font-size: 39px;
-    // color: yellow;
-    
+.main{
+  background-color: $colorL;
+  height: calc(100vh);
+  position: relative;
+  .main-content{
+    margin-top: 20px;
+    padding: 0 20px;
   }
 }

@@ -1,0 +1,9 @@
+@import '../../style/variable.scss';
+
+.home{
+  background-color: $colorM;
+  height: 400px;
+  line-height: 400px;
+  text-align: center;
+  font-size: $fontB;
+}

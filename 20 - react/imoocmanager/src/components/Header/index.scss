@@ -1,0 +1,39 @@
+@import '../../style/variable.scss';
+
+.header {
+  background-color: $colorM;
+  .header-top {
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+    text-align: right;
+    border-bottom: 1px solid #f9c700;
+
+    .exit {
+      margin-left: 20px;
+    }
+  }
+
+  .breadcrumb {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+
+    .title {
+      padding-left: 20px;
+    }
+
+    .time-weather {
+      text-align: right;
+
+      .span-img {
+        img {
+          margin-left: 20px;
+          width: 21px;
+          height: 15px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
