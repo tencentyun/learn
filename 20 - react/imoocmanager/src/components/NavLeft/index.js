@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './index.scss'
 import { Menu } from 'antd';
 import menuList from '../../config/menuConfig'
+import { Link } from  'react-router-dom'
 
 class NavLeft extends Component {
 
@@ -24,7 +25,10 @@ class NavLeft extends Component {
         )
       }
       return (
-        <Menu.Item title={item.title} key={item.key}>{ item.title }</Menu.Item>
+        <Menu.Item title={item.title} key={item.key}>
+          <Link to={item.key}></Link>
+          { item.title }
+        </Menu.Item>
       )
     })
   }

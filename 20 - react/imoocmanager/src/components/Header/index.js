@@ -32,7 +32,7 @@ class Header extends Component {
         <Row className='header-top'>
           <Col span={24}>
             <span>欢迎，河畔一角</span>
-            <a className='exit' href="">退出</a>
+            <span className='exit'>退出</span>
           </Col>
         </Row>
         <Row className='breadcrumb'>
