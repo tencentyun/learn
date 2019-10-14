@@ -12,6 +12,7 @@ import Loading from './pages/UI/Loading'
 import Notification from './pages/UI/Notification'
 import Message from './pages/UI/Message'
 import Tabs from './pages/UI/Tabs'
+import Gallery from './pages/UI/Tabs'
 
 class Router extends Component {
   render() {
@@ -29,6 +30,7 @@ class Router extends Component {
                   <Route path='/admin/ui/loading' component={Loading}></Route>
                   <Route path='/admin/ui/messages' component={Message}></Route>
                   <Route path='/admin/ui/tabs' component={Tabs}></Route>
+                  <Route path='/admin/ui/gallery' component={Gallery}></Route>
                 </Admin>
               )
             }}></Route>
