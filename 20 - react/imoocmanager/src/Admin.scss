@@ -4,6 +4,7 @@
   background-color: $colorL;
   height: calc(100vh);
   position: relative;
+  overflow: auto;
   .main-content{
     margin-top: 20px;
     padding: 0 20px;

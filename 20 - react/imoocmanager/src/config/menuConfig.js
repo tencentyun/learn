@@ -1,7 +1,7 @@
 const menuList = [
   {
     title: '首页',
-    key: '/home'
+    key: '/admin/home'
   },
   {
     title: 'UI',
@@ -13,11 +13,11 @@ const menuList = [
       },
       {
         title: '弹框',
-        key: '/ui/modals',
+        key: '/admin/ui/modals',
       },
       {
         title: 'Loading',
-        key: '/ui/loadings',
+        key: '/admin/ui/loading',
       },
       {
         title: '通知提醒',

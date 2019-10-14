@@ -5,7 +5,10 @@ import Login from './pages/Login'
 import Admin from './Admin'
 import NoMatch from './pages/NoMatch'
 
+import Home from './pages/Home'
 import Buttons from './pages/UI/Buttons'
+import Modals from './pages/UI/Modals'
+import Loading from './pages/UI/Loading'
 
 class Router extends Component {
   render() {
@@ -17,7 +20,10 @@ class Router extends Component {
             <Route path='/admin' render={() => {
               return (
                 <Admin>
+                  <Route path='/admin/home' component={Home}></Route>
                   <Route path='/admin/ui/buttons' component={Buttons}></Route>
+                  <Route path='/admin/ui/modals' component={Modals}></Route>
+                  <Route path='/admin/ui/loading' component={Loading}></Route>
                 </Admin>
               )
             }}></Route>
