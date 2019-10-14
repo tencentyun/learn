@@ -21,23 +21,23 @@ const menuList = [
       },
       {
         title: '通知提醒',
-        key: '/ui/notification',
+        key: '/admin/ui/notification',
       },
       {
         title: '全局Message',
-        key: '/ui/messages',
+        key: '/admin/ui/messages',
       },
       {
         title: 'Tab页签',
-        key: '/ui/tabs',
+        key: '/admin/ui/tabs',
       },
       {
         title: '图片画廊',
-        key: '/ui/gallery',
+        key: '/admin/ui/gallery',
       },
       {
         title: '轮播图',
-        key: '/ui/carousel',
+        key: '/admin/ui/carousel',
       }
     ]
   },
@@ -47,11 +47,11 @@ const menuList = [
     children: [
       {
         title: '登录',
-        key: '/form/login',
+        key: '/admin/form/login',
       },
       {
         title: '注册',
-        key: '/form/reg',
+        key: '/admin/form/reg',
       }
     ]
   },
@@ -61,21 +61,21 @@ const menuList = [
     children: [
       {
         title: '基础表格',
-        key: '/table/basic',
+        key: '/admin/table/basic',
       },
       {
         title: '高级表格',
-        key: '/table/high',
+        key: '/admin/table/high',
       }
     ]
   },
   {
     title: '富文本',
-    key: '/rich'
+    key: '/admin/rich'
   },
   {
     title: '城市管理',
-    key: '/city'
+    key: '/admin/city'
   },
   {
     title: '订单管理',
@@ -83,21 +83,21 @@ const menuList = [
     btnList: [
       {
         title: '订单详情',
-        key: 'detail'
+        key: '/admin/detail'
       },
       {
         title: '结束订单',
-        key: 'finish'
+        key: '/admin/finish'
       }
     ]
   },
   {
     title: '员工管理',
-    key: '/user'
+    key: '/admin/user'
   },
   {
     title: '车辆地图',
-    key: '/bikeMap'
+    key: '/admin/bikeMap'
   },
   {
     title: '图标',
@@ -105,21 +105,21 @@ const menuList = [
     children: [
       {
         title: '柱形图',
-        key: '/charts/bar'
+        key: '/admin/charts/bar'
       },
       {
         title: '饼图',
-        key: '/charts/pie'
+        key: '/admin/charts/pie'
       },
       {
         title: '折线图',
-        key: '/charts/line'
+        key: '/admin/charts/line'
       },
     ]
   },
   {
     title: '权限设置',
-    key: '/permission'
+    key: '/admin/permission'
   },
 ];
 export default menuList;
