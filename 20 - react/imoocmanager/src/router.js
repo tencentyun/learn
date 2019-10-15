@@ -12,7 +12,7 @@ import Loading from './pages/UI/Loading'
 import Notification from './pages/UI/Notification'
 import Message from './pages/UI/Message'
 import Tabs from './pages/UI/Tabs'
-import Gallery from './pages/UI/Tabs'
+import Gallery from './pages/UI/Gallery'
 
 class Router extends Component {
   render() {
