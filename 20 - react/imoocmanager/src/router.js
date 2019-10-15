@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import App from './App'
-import Login from './pages/Login'
+// import Login from './pages/Login'
 import Admin from './Admin'
 import NoMatch from './pages/NoMatch'
 
@@ -14,6 +14,8 @@ import Message from './pages/UI/Message'
 import Tabs from './pages/UI/Tabs'
 import Gallery from './pages/UI/Gallery'
 import Carousela from './pages/UI/Carousel'
+
+import Login from './pages/Form/Login'
 
 class Router extends Component {
   render() {
@@ -33,6 +35,7 @@ class Router extends Component {
                   <Route path='/admin/ui/tabs' component={Tabs}></Route>
                   <Route path='/admin/ui/gallery' component={Gallery}></Route>
                   <Route path='/admin/ui/carousel' component={Carousela}></Route>
+                  <Route path='/admin/form/login' component={Login}></Route>
                 </Admin>
               )
             }}></Route>
