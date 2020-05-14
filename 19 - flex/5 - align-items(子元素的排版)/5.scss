@@ -3,7 +3,7 @@
   display: flex;
   align-items: flex-start;              //  子元素垂直方向排版 顶部靠左对齐
   height: 300px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid blue;
   .item-1{
     width: 300px;
     height: 100px;
@@ -26,7 +26,7 @@
   display: flex;  
   align-items: flex-end;        //  子元素垂直方向排版 底部靠左对齐
   height: 300px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid blue;
   .item-1{
     width: 300px;
     height: 100px;
@@ -48,7 +48,7 @@
   display: flex;  
   align-items: center;        //  子元素垂直方向排版 底部靠左对齐
   height: 300px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid blue;
   .item-1{
     width: 300px;
     height: 100px;
@@ -69,7 +69,7 @@
   display: flex;  
   align-items: baseline;        //  子元素垂直方向排版 位于容器的基线上
   height: 300px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid blue;
   .item-1{
     width: 300px;
     height: 100px;
@@ -90,7 +90,7 @@
   display: flex;  
   align-items: stretch;        //  子元素垂直方向排版 元素被拉伸以试用容器
   height: 300px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid blue;
   .item-1{
     width: 300px;
     height: 100px;
