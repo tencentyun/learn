@@ -13,8 +13,8 @@
 		}
 
 		function student(name,age,love){
-			// person.call(this,name,age);   // call this表示继承的对象 name，age为参数，可以有多个
-			person.apply(this,[name,age])    // apply this表示继承的对象 [name,age]为类数组 只可以有一个
+			person.call(this,name,age);   // call this表示继承的对象 name，age为参数，可以有多个
+			// person.apply(this,[name,age])    // apply this表示继承的对象 [name,age]为类数组 只可以有一个
 			this.love = love;
 		}
 

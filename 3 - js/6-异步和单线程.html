@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 异步
+    console.log(100);
+    setTimeout(function (){
+      console.log(200)
+    }, 1000)
+    console.log(300)
+
+    // 同步
+    console.log(100)
+    alert(200)
+    console.log(300)
+
+    // const url1 = '/data1.json'
+    // const url2 = '/data2.json'
+    // const url3 = '/data3.json'
+    // getData(url1).then(datat1 => {
+    //   console.log(data1)
+    //   return getData(url2)
+    // }).then(datat2 => {
+    //   console.log(data2)
+    //   return getData(url3)
+    // }).then(datat3 => {
+    //   console.log(data3)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
+    // function getData(url){
+    //   return new Promise((resolve, reject) => {
+    //     $.ajax({
+    //       url,
+    //       success(data){
+    //         resolve(data)
+    //       },
+    //       error(err){
+    //         reject(err)
+    //       }
+    //     })
+    //   })
+    // }
+
+    function loadImg(src){
+      return new Promise((resolve, reject) => {
+        const img = document.createElement('img')
+        img.onload = () => {
+          resolve(img)
+        }
+        img.onerror = () => {
+          reject(new Error(`图片加载失败 ${url}`))
+        }
+        img.src = src
+      })
+    }
+
+    const url = 'https://tpc.googlesyndication.com/simgad/54677365238040636?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&rs=AOga4qmFDlr-RvLrcT2YO97w2SqkO1bhTg'
+    const url2 = 'https://tool.oschina.net/img/logo.gif?20130730'
+    // 执行loadImg()方法 返回一个promise对象 需要执行then方法(成功resolve)和catch方法(失败reject）
+    loadImg(url).then(img => {
+      console.log(img.width)
+      return img
+    }).then(img => {
+      console.log(img.height)
+      return loadImg(url2)
+    }).then(img2 => {
+      console.log(img2.width)
+      return img2
+    }).then(img2 => {
+      console.log(img2.height)
+    }).catch(err => console.log(err))
+
+  </script>
+</body>
+</html>  

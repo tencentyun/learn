@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // if (true) {
+    //   let a = 100
+    // }
+    // console.log(a)      // 报错 a is not defined
+
+    // 所有的(闭包)自由变量的查找 是在函数定义的地方向上级作用域查找，并不是在执行的地方查找
+    // 函数作为返回值被传递
+    function create(){
+      const a = 100;
+      return function (){
+        console.log(a)
+      }
+    }
+    const fn =  create()
+    const a = 200
+    fn()                      // 100 只在函数定义的地方查找上级作用域
+
+    // 函数作为参数被传递
+    function create2(fn){
+      const b = 200
+      fn()
+    }
+    const b =  100
+    function fn2(){
+      console.log(b)
+    }
+    create2(fn2)            // 100 只在函数定义的地方查找上级作用域
+
+    function fn3(){
+      console.log(this)
+    }
+    fn2()     // this指向window
+    fn3.call({ x: 100 })      // this指向 { x: 100 }  call可以直接执行
+    const fn4 = fn3.bind({ x: 200 })  // bind是执行一个新的方法
+    fn4()                   // this指向 { x: 200 }
+    
+    const zhangsan = {
+      name: 'zhengsan',
+      sayHi() {
+        console.log(this)     // this指向当前的对象 zhangsan
+      },
+      wait(){
+        setTimeout(function (){
+          console.log(this)   // this指向window
+        },100)
+      }
+    }
+
+    const lisi = {
+      name: '李四',
+      sayHi() {
+        console.log(this)     // this指向当前的对象 lisi
+      },
+      wait(){
+        setTimeout(() => {
+          console.log(this)   // this指向当前的对象 lisi
+        },100)
+      }
+    }
+
+    function fn5(a, b, c){
+      console.log(this)         // {x: 100}
+      console.log(a, b, c)      // 100, 200, 300
+      return 'this is fn5'
+    }
+    const fn6 = fn5.bind({x: 100}, 100, 200, 300)
+    fn6()
+
+    // 闭包隐藏数据 只提供API
+    function createCache(){
+      const data = {}
+      return {
+        set: function (key, val){
+          data[key] = val
+        },
+        get: function (key){
+          return data[key]
+        }
+      }
+    }
+    const c = createCache()
+    c.set('a', 100)
+    console.log(c.get('a'))      // 100
+
+
+  </script>
+  
+</body>
+</html>

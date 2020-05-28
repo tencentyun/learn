@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 父类
+    class People{
+      constructor(name){
+        this.name = name
+      }
+
+      eat(){
+        console.log(`${this.name} eat something`)
+      }
+    }
+
+    // 子类 声明一个类 一般都是大写开头
+    class Student extends People{
+      // 构建的一些事情 new这个类的时候 会先走这个构建
+      constructor(name, number){
+        super(name)
+        this.number = number 
+      }
+
+      // 定义一个方法
+      sayHi(){
+        console.log(`姓名${this.name},  学号${this.number}`)
+      }
+    }
+    // 通过类 new 对象/实例
+    const xialuo = new Student('夏洛', 100)
+    console.log(xialuo.name)                  // 夏洛
+    console.log(xialuo.number)                // 100
+    xialuo.sayHi() 
+    xialuo.eat()
+
+    const madongmei = new Student('马冬梅', 101)
+    console.log(madongmei.name)               // 马冬梅
+    console.log(madongmei.number)             // 101
+    madongmei.sayHi()
+  </script>
+</body>
+</html>
