@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+  // 前言
+  // vue和React框架应用广泛，但也封装了DOM操作
+  // 但DOM操作一直都是前端工程师的基础、必备知识
+  // 只会vue而不懂DOM操作的前端程序员，不会长久
+  // 不要被框架限制了自己的能力与知识范围
+  // property是一种属性形式 不是一个api 例如img.style.width
+  img.setAttribute('data-name', 'imooc')    // set一个属性
+  img.getAttribute('data-name')             // get一个属性
+
+  // property: 修改对象属性，不会提现到html结构中
+  // attribute: 修改html属性，会改变html结构
+  // 两者都有可能引起DOM重新渲染
+
+  // DOM性能
+  // DOM操作非常‘昂贵’，避免频繁的DOM操作
+  // 对DOM查询做缓存
+  // 将频繁操作改为一次性操作
+  // 不缓存DOM查询结果
+  for(let i = 0; i < document.getElementById('id').length; i++){
+    // 每次循环，都会计算length，频繁进行DOM查询
+  } 
+
+  // 缓存DOM查询结果
+  const pList = document.getElementById('id')
+  const length = pList.length
+  for(let i = 0; i < length; i++){
+    // 缓存length， 只进行一次DOM查询
+  }
+
+  const listNode = document.getElementById('id')
+  // 创建一个文档片段，此时还没有插入到DOM树中
+  const frag = document.createDocumentFragment()
+  // 执行插入
+  for(let x = 0; x < 10; x++){
+    const li = document.createElement('div')
+    li.innerHTML = '1231'
+    frag.appendChild()      // 创建的dom放到一个文档片段中
+  }
+  listNode.appendChild(frag)
+
+  </script>
+
+ 
+  
+</body>
+</html>

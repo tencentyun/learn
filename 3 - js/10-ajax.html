@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 传统ajax
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'URL', true)        // true 异步
+    xhr.send(null)                      // get
+    xhr.send(data)                      // post
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          alert(xhr.responseText)
+        } else {
+          console.log('其它情况')
+        }
+      }
+    }
+
+    // img link script无视跨域 无视同源策略
+    // 所有的跨域，都必须经过server端允许和配合
+    // 未经server端允许就实现跨域，说明浏览器有漏洞，危险信号
+
+    // JSONP
+    // 访问https://imooc.co/, 服务端一定返回一个html文件吗？
+    // 服务器可以任意动态拼接数据返回，只要符合html格式要求
+    // 同理于<script src="baidu.js"> 并不是一定是返回一个js文件
+    // 服务器可以任意动态拼接数据返回
+    // 所以，<script>就可以获得跨域的数据，只要服务端愿意返回
+
+    function ajax(url) {
+      const p = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', 'URL', true)        // true 异步
+        xhr.send(null)                      // get
+        xhr.send(data)                      // post
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              resolve(xhr.responseText)
+            } else if(xht.status === 404) {
+              reject(new Error('404'))
+            }
+          }
+        }
+      })
+    }
+    ajax('/data.json').then(res =>{
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>

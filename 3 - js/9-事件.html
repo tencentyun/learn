@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">按钮</button>
+  <ul id="ul1">
+    <li id="li1">激活</li>
+    <li id="li2">取消</li>
+  </ul>
+
+  <ul id="ul2">
+    <li>
+      <a href="#" id="a1">a1</a>
+    </li>
+    <li>
+      <a href="#" id="a2">a2</a>
+    </li>
+    <li>
+      <a href="#" id="a3">a3</a>
+    </li>
+    <li>
+      <button>加载更多......</button>
+    </li>
+  </ul>
+
+  <script>
+
+
+    function bindEvent(ele, type, fn){
+      ele.addEventListener(type, fn)      // 事件监听
+    }
+    const btn = document.getElementById('btn')
+    bindEvent(btn, 'click', event => {
+      console.log('click')
+      event.preventDefault()    // 阻止默认行为  例如标签跳转被阻止
+    })
+
+
+    // 冒泡
+    const body = document.body
+    bindEvent(body, 'click', event => {
+      console.log('body')
+    })
+    const li1 = document.getElementById('li1')
+    bindEvent(li1, 'click', event => {
+      event.stopPropagation()     // 阻止冒泡 body事件不被触发点击
+      console.log('li1')
+    })
+
+    // 事件代理：代码简洁、减少浏览器内存占用、但是不要滥用
+    const ul2 = document.getElementById('ul2')
+    bindEvent(ul2, 'click', event => {
+      event.preventDefault()
+      if(event.target.nodeName === 'A'){
+        alert(event.target.innerHTML)
+      }
+    })
+  </script>
+</body>
+</html>

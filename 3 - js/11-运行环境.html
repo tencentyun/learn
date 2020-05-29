@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 加载过程
+    // DNS解析：域名-->IP地址
+    // 浏览器根据IP地址向服务器发起http请求
+    // 服务器处理http请求，并返回给浏览器
+
+    // 渲染过程
+    // 根据HTML代码生成DOM Tree
+    // 根据CSS代码生成CSSOM
+    // 将DOM Tree和CSSOM整合形成Render Tree(渲染树)
+    // 根据Render Tree渲染页面
+    // 遇到<script>则暂停渲染，优先加载并执行JS代码，完成在继续
+    // 直至把Render Tree渲染完成
+
+    window.addEventListener('load', function (){
+      // 页面的全部资源加载完才会执行，包括图片、视频等
+    })
+    document.addEventListener('DOMContentLoaded', function (){
+      // DOM渲染完即可执行，此时图片、视频(很大)还可能没有加载完 一般采用这个
+    })
+
+    // 性能优化：是一个综合性问题，没有标准答案，但要求尽量全面(可以写一本书)
+    // 多使用内存、缓存或者其他方法
+    // 减少CPU计算量，减少网络加载耗时
+    // 适用于所有编程的性能优化--空间换时间
+  </script>
+</body>
+</html>
