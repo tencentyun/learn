@@ -25,10 +25,79 @@
     }
 
     // 函数表达式
-    console.log(sum2(1,2))     // 报错 sum2 is not a function
-    var sum2 = function(x, y){ 
-      return x + y
+    // console.log(sum2(1,2))     // 报错 sum2 is not a function
+    // var sum2 = function(x, y){ 
+    //   return x + y
+    // }
+
+    
+    // new Object()和Object.create()区别
+    // {}等同于bew Object(), 原型是Object.prototype
+    // Object.create(null) 没有原型
+    // Object.create({...}) 可指定原型
+    const obj1 = {
+      a: 1,
+      sum(){
+        return this.a
+      }
     }
+
+    const obj2 = new Object({
+      a: 1,
+      sum(){
+        return this.a
+      }
+    })
+    console.log(obj1 == obj2)      // false
+
+    const obj3 = Object.create({    // obj3的隐式原型指向{}里面的这个对象
+      a: 1,
+      sum(){
+        return this.a
+      }
+    })
+    console.log(obj3) 
+
+
+    // 字符串 字母开头，后面字母数字下划线，长度6-30
+    const reg = /^[a-zA-Z]\w{5, 29}$/     // ^表示以某某开头  $以某某结尾 想要全满足加(^(开头) $(结尾))
+    // 邮政编码
+    // /\d{6}/
+
+    // // 小写英文字母
+    // /^[a-z]+$/
+
+    // // 英文字母
+    // /^[a-zA-Z]+$/
+
+    // // 日期格式
+    // /^\d{4}-\d{1,2}-\d{1,2}$/
+
+    // // 用户名
+    // /^[a-zA-Z]\w{5, 17}/
+
+    // // 简单的ip地址匹配
+    // /\d+\.\d+\.\d+\.\d/ 
+
+
+    // 关于作用域和自由变量的场景题
+    let b = 100
+    function test(){
+      console.log(b)      // 100
+      b = 10              
+      console.log(b)      // 10
+    }
+    test()
+    console.log(b)        // 10
+
+    var b = 100
+    function test(){
+      console.log(b)      // undefined
+      var b = 10              
+      console.log(b)      // 10
+    }
+    test()
+    console.log(b)        // 100
   </script>  
 </body>
 </html>

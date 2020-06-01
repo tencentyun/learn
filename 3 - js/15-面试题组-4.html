@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 手写字符串trim保证浏览器兼容性
+    String.prototype.trim = function (){
+      return this.replace(/^\s+/, '').replace(/\s+$/, '')
+    }
+
+    // 获取多个数字中的最大值
+    function max(){
+      const nums = Array.prototype.slice.call(arguments)
+      let max = 0
+      nums.forEach(n => {
+        if(n > max){
+          max = n
+        }
+      })
+      return max
+    }
+
+    Math.max(10, 20, 30)
+    Math.min(10, 20, 30)
+
+
+    // 如何捕获JS中的异常
+    try{
+
+    }catch(err){
+      console.error(err)
+    } finally{
+
+    }
+
+    // 自动捕获
+    window.onerror = function (message, source, lineNom, colNom, error){
+      // 第一，对跨域的js，如CDN的，不会有详细的报错信息
+      // 第二，对于压缩的js，还要配合sourceMap反查到未压缩代码的行、列
+    }
+
+
+    // 什么是JSON
+    // json是一种数据格式，本质是一段字符串, 必须用双引号
+    // json格式和JS对象结构一致，对JS语言更友好
+    // window.JSON是一个全局对象：JSON.stringify JSON.parse
+
+    // 获取url参数
+    // function query(name){
+    //   const search = location.search
+    //   const p = new URLSearchParams(search)
+    //   return p.get(name)
+    // }
+    // console.log(query('a'))
+
+    // flatern 多维数组拍平
+    function flat(arr){
+      // 验证arr中，还有没有深层数组
+      const isDeep = arr.some(item => item instanceof Array)
+      if(!isDeep){
+        return arr
+      }
+
+      const res = Array.prototype.concat.apply([], arr)
+      return flat(res)
+    }
+    console.log(flat([1, 2, [3, 4, [5, 6]]]))   // [1, 2, 3, 4, 5, 6]
+
+    // 数组去重
+    // 传统方式
+    function unique(){
+      const res = []
+      arr.forEach(item => {
+        if(res.indexOf(item) < 0){
+          res.push(item)
+        }
+      })
+      return res
+    }
+
+    // ES6 使用set (无序，不能重复)
+    function unique2(arr){
+      const set = new Set(arr)
+      return [...set]
+    }
+  </script>
+</body>
+</html>
