@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1、var、let、const的区别?
+    // var是ES5语法，let/const是ES6语法；var有变量提升
+    // var和let是变量，可修改；const是常量，不可修改
+    // let和const有块级作用域，var没有
+    // console.log(a)      // undefined  变量提升
+    // var a = 100
+
+    // for(let i = 0; i < 10; i++){
+    //   let j = i + 1
+    // }
+    // console.log(i, j)   // 报错 let是块级作用域
+
+
+    // 2、typeof能判断哪些类型？
+    // undefined string number boolean sysbol  值类型
+    // object(注意，typeof null === 'object') 引用类型
+    // function
+
+
+    // 3、列举强制类型转换和隐式类型转换？ 
+    // 强制：parseInt parseFloat toString
+    // 隐式：if、逻辑运算、==、+拼接字符串
+
+
+    // 4、手写深度比较，模拟lodash/isEqual
+    // 判断传入的参数是否是object
+    function isObj(obj){
+      return typeof obj === 'object' && obj !== null
+    }
+    function isEqual(obj1, obj2){
+      // 不是对象直接判断
+      if(!isObj(obj1) || !isObj(obj2)){
+        return obj1 === obj2      // 值类型直接返回
+      }
+      // 如果传入的都是obj1
+      if(obj1 === obj2){
+        return true
+      }
+
+      // 1. 两个都是对象或者数组，而且不相等
+      // 拿到obj的key值 返回一个key值的数组  如果obj是数组返回下标
+      const obj1Keys = Object.keys(obj1)   
+      const obj2Keys = Object.keys(obj2)
+      if(obj1Keys.length !== obj2Keys.length){
+        return false
+      }
+      // 2. 以obj1为基准和obj2一次递归比较
+      for(let key in obj1){
+        // 比较当前key的val -- 递归
+        const res = isEqual(obj1[key], obj2[key])
+        if(!res){
+          return false
+        }
+      }
+
+      return true
+    }
+
+
+    const obj1 = {
+      a: 100,
+      b: {
+        x: 200,
+        y: 300
+      }
+    }
+
+    const obj2 = {
+      a: 100,
+      b: {
+        x: 200,
+        y: 300
+      }
+    }
+
+    console.log(isEqual(obj1, obj2))
+
+
+    // 5. split()和join()的区别
+    // '1-2-3'.split('-')         // [1, 2, 3]
+    // [1, 2, 3].jion('-')        // '1-2-3'
+
+
+    // 6. 数据的pop push unshift shift。 思考: 功能是什么？返回值是什么？是否会对原数组造成影响
+    const arr1 = [10, 20, 30, 40]
+    const arr2 = [10, 20, 30, 40]
+    const arr3 = [10, 20, 30, 40]
+    const arr4 = [10, 20, 30, 40]
+    
+
+    const arr1Res = arr1.pop()
+    console.log(arr1Res, arr1)      // 40 [10, 20, 30] 改变原数组并去除最后一个元素
+    
+    const arr2Res = arr2.shift()
+    console.log(arr2Res, arr2)      // 10 [20, 30, 40] 改变原数组并去除第一个元素
+
+    const arr3Res = arr3.push(50)
+    console.log(arr3Res, arr3)      // 5 [10, 20, 30, 40, 50]  改变原数组并在最后追加一个元素
+  
+    const arr4Res = arr4.unshift(5)
+    console.log(arr4Res, arr4)      // 5 [5, 20, 30, 40]   改变原数组并在最前面追加一个元素
+ 
+    // 纯函数： 1. 不改变原数组(没有副作用)； 2. 返回一个数组
+    const arr5 = [10, 20, 30, 40]
+    const arr6 = [10, 20, 30, 40]
+    const arr7 = [10, 20, 30, 40]
+    const arr8 = [10, 20, 30, 40]
+
+    const arr5Res = arr5.concat([50])
+    console.log(arr5Res, arr5)        // [10, 20, 30, 40, 50] [10, 20, 30, 40]
+
+    const arr6Res = arr6.map(item => item * 10)
+    console.log(arr6Res, arr6)        // [100, 200, 300, 400] [10, 20, 30, 40]
+  
+    const arr7Res = arr7.filter(item => item > 25)
+    console.log(arr7Res, arr7)        // [30, 40] [10, 20, 30, 40]
+  
+    const arr8Res = arr8.slice()      // 类似深拷贝 截取数组的元素 返回一个新的数组 原数组不变
+    console.log(arr8Res, arr8)        // [10, 20, 30, 40]
+  </script>
+</body>
+</html>

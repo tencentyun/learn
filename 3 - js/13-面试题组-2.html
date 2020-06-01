@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 数组slice(切片)和splice(剪拼)区别
+    const arr1 = [10, 20, 30, 40, 50]
+    console.log(arr1.slice())         // [10, 20, 30, 40, 50]
+    console.log(arr1.slice(2))        // [30, 40, 50]
+    console.log(arr1.slice(1, 2))     // startIndex endIndex [20]
+    console.log(arr1.slice(-2))       // [40, 50]
+
+    const arr2 = [10, 20, 30, 40, 50]
+    console.log(arr2.splice(1, 2, 'a')) // [20, 30]
+    console.log(arr2)                   // [10, 'a', 40, 50]
+
+    // 2. [10, 20, 30].map(parseInt)
+    const arr3 = [10, 20, 30]
+    const res = arr3.map(parseInt)
+    console.log(res)      // [10, NaN, NaN]
+    // 拆解
+    arr3.map((num, index) => {
+      return parseInt(num, index)
+    })
+
+    // 3. get与post的区别 
+    // get一般用于查询操作，post一般用户提交操作
+    // get参数拼接在url上，post挡在请求体内(数据量体积可更大)
+    // 安全性：post易于防止CSRF
+
+    // 4. call和apply的区别
+    fn.call(this, p1, p2, p3)     // 第二个参数是一个个传的
+    fn.apply(this, arguments)     // 第二个参数是一个类数组
+
+    // 5. 闭包是什么？有何特性？有何影响？
+    // 回顾作用域和自由变量
+    // 回顾闭包应用场景：函数作为参数被传入，函数作为返回值被传入
+    // 回顾：自由变量的查找，要在函数定义的地方查找(而非执行的地方)
+    // 影响：变量会常驻内存，得不到释放 。闭包不要乱用
+
+    // 如何阻止事件冒泡和默认行为
+    event.stopPropagation()     // 阻止事件冒泡
+    event.preventDefault()      // 阻止默认行为
+
+    // 如何减少DOM操作
+    // 缓存DOM查询结果
+    // 多次DOM操作，合并到一次插入
+  </script>
+</body>
+</html>

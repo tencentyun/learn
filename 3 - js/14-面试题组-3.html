@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 解释jsonp原理，为何不是真正的ajax
+    // 浏览器的同源策略(服务端没有同源策略)和跨域
+    // 哪些html标签能绕过跨域？img link script 
+    // jsonp原理
+
+
+    // 函数声明和函数表达式的区别
+    // 函数声明：function fn(){...}
+    // 函数表达式：const fn =  function (){...}
+    // 函数声明会在代码执行前预加载，而函数表达式不会
+
+    // 函数声明
+    console.log(sum1(1,2))     // 3
+    function sum1(x, y){
+      return x + y
+    }
+
+    // 函数表达式
+    console.log(sum2(1,2))     // 报错 sum2 is not a function
+    var sum2 = function(x, y){ 
+      return x + y
+    }
+  </script>  
+</body>
+</html>

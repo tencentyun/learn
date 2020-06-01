@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
+  <input type="text" id="input">
+
+  <div id="dragId" draggable="true" style="width: 100px; height: 100px; border: 1px solid #e7e7e7;">123</div>
   <script>
     // 加载过程
     // DNS解析：域名-->IP地址
@@ -20,10 +25,10 @@
     // 遇到<script>则暂停渲染，优先加载并执行JS代码，完成在继续
     // 直至把Render Tree渲染完成
 
-    window.addEventListener('load', function (){
+    window.addEventListener('load', function () {
       // 页面的全部资源加载完才会执行，包括图片、视频等
     })
-    document.addEventListener('DOMContentLoaded', function (){
+    document.addEventListener('DOMContentLoaded', function () {
       // DOM渲染完即可执行，此时图片、视频(很大)还可能没有加载完 一般采用这个
     })
 
@@ -31,6 +36,72 @@
     // 多使用内存、缓存或者其他方法
     // 减少CPU计算量，减少网络加载耗时
     // 适用于所有编程的性能优化--空间换时间
+
+    // 让加载更快
+    // 减少资源体积：压缩代码
+    // 减少访问次数：合并代码，SSR服务器端渲染，缓存(打包文件hash，代码不变重新打包hash不变)
+    // 使用更快的网络：CDN
+
+    // 让渲染更快
+    // CSS放在head里面，JS放在body最下面
+    // 今早开始执行JS，用DOMContentLoaded触发
+    // 懒加载(图片懒加载，上滑加载更多)
+    // 对DOM查询进行缓存
+    // 频繁DOM操作，合并到一起插入DOM结构
+    // 节流throttle 防抖debounce
+
+    // 防抖
+    // 监听一个输入框的文字变化后出发change事件
+    // 直接用keyup事件，则会频繁触发change事件
+    // 防抖：用户输入结束或暂停时，才会触发change事件
+
+    // input防抖代码
+    const input1 = document.getElementById('input')
+    let timer = null
+    input1.addEventListener('keyup', function () {
+      if (timer) {
+        clearTimeout(timer)   // 清空定时器
+      }
+      timer = setTimeout(() => {
+        console.log(input1.value)   // 模拟触发 change事件
+        timer = null    // 清空定时器
+      }, 500)
+    })
+
+    // 封装防抖
+    function debounce(fn, delay = 500) {
+      let timer = null
+      return function () {
+        if (timer) {
+          clearTimeout(timer)   // 清空定时器
+        }
+        timer = setTimeout(() => {
+          fn()
+          timer = null    // 清空定时器
+        }, delay)
+      }
+    }
+    input1.addEventListener('keyup', debounce(function (){
+      console.log(input1.value)
+    }, 500))
+
+    // 节流 throttle
+    // 拖拽一个元素时，要随时拿到该元素被拖拽的位置
+    // 直接用drag事件，则会频繁触发，很容易导致卡顿
+    // 节流：无论拖拽速度多快，都会每隔100ms触发一次
+    const dragId = document.getElementById('dragId')
+    let timer2 = null
+    dragId.addEventListener('drag', function (e){
+      if(timer2){
+        return 
+      }
+      timer2 = setTimeout(() => {
+        console.log(e.offsetX)   // 模拟触发 change事件
+        timer2 = null    // 清空定时器
+      }, 100)
+    })
+
   </script>
 </body>
+
 </html>
