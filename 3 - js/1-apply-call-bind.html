@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>apply-call实现继承</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<script type="text/javascript">
+		function person(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		function student(name,age,love){
+			person.call(this,name,age);   // call this表示继承的对象 name，age为参数，可以有多个
+			// person.apply(this,[name,age])    // apply this表示继承的对象 [name,age]为类数组 只可以有一个
+			this.love = love;
+		}
+
+		var Student = new student('jane','23','苹果');
+
+		// 打印Student对象
+		console.log(Student);
+
+    var name = '张三'
+    var age = 20;
+    var obj = {
+      name: '李四',
+      age: 21,         // 如果这里是this.age 这里的this指向window
+      myFun: function (){
+        console.log(`${this.name} 的年龄 ${this.age}`)    // 哪个调用了该函数，this就指向哪个
+      }
+    }
+    obj.myFun()         // 李四的年龄21  这里的this指向obj
+
+    var editThis = {
+      name: '王五',
+      age: '22'
+    }
+
+    var fn = obj.myFun
+    fn()                 // 张三的年龄20   这里的this指向window
+
+    // 通过call方法，调用变量fn指向的函数，并把函数中的this指向call方法的第一个参数这里，就是editThis
+    // 其实可以这么理解，call方法本身和fn没有关系，call本身是Object原型链上的方法，这里看到调用fn.call()其实并不是调用call方法，而是调用fn方法本身调用，call在这里起到的作用只是改变了fn这个变量this的指向而已
+    // 可以有多个参数
+    fn.call(editThis)    // 王五的年龄22   这里的this指向editThis
+
+    // apply是call的兄弟，理念和call方法是一样的，唯一的区别是apply的第二个参数是数组
+    fn.apply(editThis)   // 王五的年龄22   这里的this指向editThis
+
+    // bind是call和apply的兄弟，理念和call、apply方法是一样的，唯一的区别在于bind的不会自己调用，需要在执行一下
+    fn.bind(editThis)()  // 王五的年龄22   这里的this指向editThis
+	</script>
+
+</body>
+</html>
