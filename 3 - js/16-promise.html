@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // MDN中文解释promise
+    // Promise对象用于异步计算
+    // 一个Promise表示一个现在、将来或永不可能可用的值
+
+    // 按照用途来解释
+    // 主要用于异步计算
+    // 可以将异步操作队列话，按照期望的顺序执行，返回符合预期的结果
+    // 可以在对象之间传递和操作Promise，帮助我们处理队列
+
+    // new Promise(function (resolve, reject) {     // function是一个执行器executor
+    //   resolve()   // 成功 调用resolve这个方法 执行then方法的succ
+    //   reject()    // 失败 调用reject这个方法 执行then方法的err
+    // }).then(function succ() {
+    //   // 成功 数据处理
+    // }).catch(function err() {
+    //   // 失败 做相应处理
+    // })
+
+    // Promise是一个代理对象，它和原先要进行的操作并无关系
+    // 它通过引入一个回调，避免更多的回调
+
+    // Promise有3个状态
+    // pending[待定]初始状态
+    // fulfilled[实现]操作成功
+    // reject[被否决]操作失败
+
+    // Promise状态发生改变，就会触发.then()里的响应函数处理后续步骤
+    // Promise状态一经改变，不会在变
+
+    // console.log('参照物')
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('Hello')
+    //   }, 2000)
+    // }).then((res) => {
+    //   console.log(`${res} World`)
+
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve('Hello')
+    //     }, 2000)
+    //   })
+    // }).then((res) => {
+    //   console.log(`${res} Promise`)
+    // })
+
+
+    // 假如一个promise已经完成了，再then()会怎么样
+    let a = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('promise不调用then自己会执行吗？ 会')  // 1秒后输出
+        resolve('Hello')
+      }, 1000)
+    })
+
+    setTimeout(() => {
+      a.then(res => {
+        console.log(res)        // 5秒后输出
+      })
+    }, 5000)
+
+    // then()接受两个函数作为参数，分别代表fulfilled和rejected
+    // then()返回一个新的promise实例，所以它可以链式调用
+    // 当前面的promise状态改变时，then()根据其最终状态，选择特定的状态响应函数执行
+    // 状态响应函数可以返回新的promise或其他值
+    // 如果返回新的promise，那么下一级then()会在新promise状态改变之后执行
+    // 如果返回其它任何值，则会立刻执行下一级then()
+
+
+    // 错误处理 catch会捕获链式调用上的所有错误
+    // promise会自动捕获内部异常，并交给reject响应函数处理
+    // reject('错误信息').then(null, message => {})     // 第一种错误处理
+    // throw new Error('错误信息').catch(message => {}) // 第二种错误处理 推荐使用这种
+
+    // 批量执行
+    // promise.all([p1, p2, p3])用于将多个promise实例，包装成一个新的promise实例
+    // 返回的实例就是普通的promise
+
+    // promise.map()  promise.resolve()  promise.reject()  promise.race()
+
+    // 使用场景 用户点击按钮出现一个弹框，确认和取消可以使用promise实现异步
+
+    // Fetch API
+    // Fetch API是XMLHttpRequest的现代替代方案：更强大也更友好；直接返回一个promise实例
+
+    // ES6新增运算符：async/await
+    // 赋予JavaScript以顺序手法编写异步脚本的能力
+    // 既保留异步运算的无阻赛特性，还继续使用同步写法
+    // 还能正常使用return/try/catch
+    // async/await仍然需要promise
+
+    function resolveAfter2Seconds(x){
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(x)
+        }, 2000)
+      })
+    }
+
+    // async声明放fn1是一个异步函数
+    async function f1(){
+      var x = await resolveAfter2Seconds(10);   // await等待一个promise对象的返回
+      console.log(x)
+    }
+
+    f1()      // 这里可以执行then方法
+  </script>
+</body>
+
+</html>
