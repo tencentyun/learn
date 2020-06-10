@@ -45,6 +45,18 @@ export default {
       // });
       this.listInfo = this.listInfo.filter(item => item.title !== val.title)
     }
+  },
+  beforeCreate(){
+    console.log('父级 beforeCreate')
+  },
+  created(){
+    console.log('父级 created')
+  },
+  beforeMount(){
+    console.log('父级 beforeMount')
+  },
+  mounted(){
+    console.log('父级 mounted')
   }
 }
 </script>

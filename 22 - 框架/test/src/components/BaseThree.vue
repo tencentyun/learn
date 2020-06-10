@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import event from './event'
 // 考点
 // 1. props和$emit
 // 2. 组件间通讯 - 自定义事件
@@ -35,7 +36,21 @@ export default {
   methods: {
     deletHander(item){
       this.$emit('deletHander', item)
+
+      event.$emit('nothing', item)
     }
+  },
+  beforeCreate(){
+    console.log('子级 beforeCreate')
+  },
+  created(){
+    console.log('子级 created')
+  },
+  beforeMount(){
+    console.log('子级 beforeMount')
+  },
+  mounted(){
+    console.log('子级 mounted')
   }
 }
 </script>

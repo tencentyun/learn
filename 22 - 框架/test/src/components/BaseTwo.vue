@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import event from './event'
 export default {
   name: 'Base',
   data() {
@@ -43,8 +44,17 @@ export default {
       selectedArr: ['B']                  // select多选(按住command键) Array 
     }
   },
+  mounted(){
+    event.$on('nothing', this.nothing)
+  },
   methods: {
-
+    nothing(val){
+      console.log(val)
+    }
+  },
+  beforeDestroy(){
+    // 及时销毁 避免内存泄漏
+    event.$off('nothing', this.nothing)
   }
 }
 </script>
