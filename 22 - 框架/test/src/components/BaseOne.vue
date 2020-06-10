@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Base1',
   data() {
     return {
       num: 10,
