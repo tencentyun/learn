@@ -87,6 +87,10 @@ export default {
     // 5. keep-alive
     // 6. mixin
 
+    // 相关的面试技巧
+    // 1. 可以不太深入，但必须知道
+    // 2. 熟悉基本用法，了解使用场景
+    // 3. 最好能和自己的项目经验结合起来
     changeState(type){
       this.state = type
     }
