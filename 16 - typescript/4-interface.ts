@@ -15,4 +15,46 @@ let viking: Person = {    // 对象的属性形状必须和Person一样
   age: 20
 }
 
-viking.id = 321     // 报错  interface已经声明了只读
+// viking.id = 321     // 报错  interface已经声明了只读
+
+
+// 使用interface对class进行抽象
+// 例如汽车和手机都有收音机 理论上没有合适的父类进行继承  但是可以抽象出一个interface接口实现共同属性的继承
+interface Radio{      // 收音机
+  switchRadio(): void      // void(新的关键字) 表示什么都不返回  
+}
+
+interface Battery{    // 电池容量
+  checkBatteryStatus();
+}
+
+class Car implements Radio {
+  switchRadio(){
+
+  }
+}
+
+class Cellphone implements Radio, Battery {
+  switchRadio(){
+
+  }
+
+  checkBatteryStatus(){
+
+  }
+}
+
+// 接口继承
+interface RadioWithBattery extends Radio {
+  checkBatteryStatus();
+}
+// 使用RadioWithBattery继承  同上面的Cellphone
+class Cellphone2 implements RadioWithBattery {
+  switchRadio(){
+
+  }
+
+  checkBatteryStatus(){
+
+  }
+}
