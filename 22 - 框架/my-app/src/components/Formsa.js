@@ -17,8 +17,9 @@ class Formsa extends React.Component {
   // }
 
   handleSubmit(event){
-    console.log(this.tag)       // 获取的当前DOM
-    console.log(this.tag.value)
+    // console.log(this.tag)       // 获取的当前DOM
+    // console.log(this.tag.value)
+    this.props.onAddList(this.tag.value)
     event.preventDefault()
   }
   
@@ -43,3 +44,4 @@ class Formsa extends React.Component {
 }
 
 export default Formsa
+

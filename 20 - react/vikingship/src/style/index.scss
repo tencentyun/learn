@@ -1,0 +1,9 @@
+// 以下划线"_variables"开始命名的文件在scss中命名为pashows 
+// 意指不要将scss编译到css文件 但是在导入的时候不需要添加下划线
+// 只能作为模块导入  不能单独使用
+
+// config
+@import './variables';
+
+// layout
+@import './reboot';
