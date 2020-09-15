@@ -1,0 +1,5 @@
+ @mixin  button-size($padding-x, $padding-y, $font-size, $border-raduis) {
+  padding: $padding-x $padding-y;
+  font-size: $font-size;
+  border-radius: $border-radius;
+ }

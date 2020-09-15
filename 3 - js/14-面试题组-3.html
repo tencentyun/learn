@@ -19,10 +19,10 @@
     // 函数声明会在代码执行前预加载，而函数表达式不会
 
     // 函数声明
-    console.log(sum1(1,2))     // 3
-    function sum1(x, y){
-      return x + y
-    }
+    // console.log(sum1(1,2))     // 3
+    // function sum1(x, y){
+    //   return x + y
+    // }
 
     // 函数表达式
     // console.log(sum2(1,2))     // 报错 sum2 is not a function
@@ -49,18 +49,54 @@
       }
     })
     console.log(obj1 == obj2)      // false
+    console.log(isEqual(obj1, obj2))  // false
 
-    const obj3 = Object.create({    // obj3的隐式原型指向{}里面的这个对象
-      a: 1,
-      sum(){
-        return this.a
+    function isObj(obj){
+      return typeof obj === 'object' && obj !== null
+    }
+    function isEqual(obj1, obj2){
+      // 不是对象直接判断
+      if(!isObj(obj1) || !isObj(obj2)){
+        return obj1 === obj2      // 值类型直接返回
       }
-    })
-    console.log(obj3) 
+      // 如果传入的都是obj1
+      if(obj1 === obj2){
+        return true
+      }
+
+      // 1. 两个都是对象或者数组，而且不相等
+      // 拿到obj的key值 返回一个key值的数组  如果obj是数组返回下标
+      const obj1Keys = Object.keys(obj1)   
+      const obj2Keys = Object.keys(obj2)
+      if(obj1Keys.length !== obj2Keys.length){
+        return false
+      }
+      // 2. 以obj1为基准和obj2一次递归比较
+      for(let key in obj1){
+        // 比较当前key的val -- 递归
+        const res = isEqual(obj1[key], obj2[key])
+        if(!res){
+          return false
+        }
+      }
+
+      return true
+    }
+
+
+
+
+    // const obj3 = Object.create({    // obj3的隐式原型指向{}里面的这个对象
+    //   a: 1,
+    //   sum(){
+    //     return this.a
+    //   }
+    // })
+    // console.log(obj3) 
 
 
     // 字符串 字母开头，后面字母数字下划线，长度6-30
-    const reg = /^[a-zA-Z]\w{5, 29}$/     // ^表示以某某开头  $以某某结尾 想要全满足加(^(开头) $(结尾))
+    // const reg = /^[a-zA-Z]\w{5, 29}$/     // ^表示以某某开头  $以某某结尾 想要全满足加(^(开头) $(结尾))
     // 邮政编码
     // /\d{6}/
 
@@ -93,7 +129,7 @@
     var b = 100
     function test(){
       console.log(b)      // undefined
-      var b = 10              
+      var b = 10          // var 存在变量提升 所以上上面的是undefined
       console.log(b)      // 10
     }
     test()

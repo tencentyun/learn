@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 
   <script>
@@ -15,44 +17,44 @@
 
     // 所有的(闭包)自由变量的查找 是在函数定义的地方向上级作用域查找，并不是在执行的地方查找
     // 函数作为返回值被传递
-    function create(){
+    function create() {
       const a = 100;
-      return function (){
+      return function () {
         console.log(a)
       }
     }
-    const fn =  create()
+    const fn = create()
     const a = 200
     fn()                      // 100 只在函数定义的地方查找上级作用域
 
     // 函数作为参数被传递
-    function create2(fn){
+    function create2(fn) {
       const b = 200
       fn()
     }
-    const b =  100
-    function fn2(){
+    const b = 100
+    function fn2() {
       console.log(b)
     }
     create2(fn2)            // 100 只在函数定义的地方查找上级作用域
 
-    function fn3(){
+    function fn3() {
       console.log(this)
     }
     fn2()     // this指向window
     fn3.call({ x: 100 })      // this指向 { x: 100 }  call可以直接执行
     const fn4 = fn3.bind({ x: 200 })  // bind是执行一个新的方法
     fn4()                   // this指向 { x: 200 }
-    
+
     const zhangsan = {
       name: 'zhengsan',
       sayHi() {
         console.log(this)     // this指向当前的对象 zhangsan
       },
-      wait(){
-        setTimeout(function (){
+      wait() {
+        setTimeout(function () {
           console.log(this)   // this指向window
-        },100)
+        }, 100)
       }
     }
 
@@ -61,29 +63,29 @@
       sayHi() {
         console.log(this)     // this指向当前的对象 lisi
       },
-      wait(){
+      wait() {
         setTimeout(() => {
           console.log(this)   // this指向当前的对象 lisi
-        },100)
+        }, 100)
       }
     }
 
-    function fn5(a, b, c){
+    function fn5(a, b, c) {
       console.log(this)         // {x: 100}
       console.log(a, b, c)      // 100, 200, 300
       return 'this is fn5'
     }
-    const fn6 = fn5.bind({x: 100}, 100, 200, 300)
+    const fn6 = fn5.bind({ x: 100 }, 100, 200, 300)
     fn6()
 
     // 闭包隐藏数据 只提供API
-    function createCache(){
+    function createCache() {
       const data = {}
       return {
-        set: function (key, val){
+        set: function (key, val) {
           data[key] = val
         },
-        get: function (key){
+        get: function (key) {
           return data[key]
         }
       }
@@ -93,7 +95,95 @@
     console.log(c.get('a'))      // 100
 
 
+    let testA = 100
+    function test1() {
+      return function () {
+        console.log(`a值为${a}`)
+      }
+    }
+    testA = 200
+    const test1Vale = test1()
+    test1Vale()   // 200 只在块级作用域定义的地方向上查找 若找到不到 再到父级的块级作用域查找
+
+    function test2(fn) {
+      let dd = 100
+      fn()
+    }
+    let dd = 200
+    const test3 = function () {
+      console.log(`dd的值${dd}`)
+    }
+    const test2Val = test2(test3)   // 200
+
+
+    const cc = {
+      name: '张三',
+      type: this,           // 指向window
+      eat: function () {
+        console.log(this)  // 指向cc
+      },
+      play() {
+        console.log(this)   // 指向cc
+      },
+      student() {
+        setTimeout(() => {
+          console.log(this)   // 指向cc
+        }, 500)
+      },
+      read() {
+        setTimeout(function() {
+          console.log(this)   // 指向window
+        }, 500)
+      },
+    }
+    console.log(cc.type)
+    console.log(cc.eat())
+    console.log(cc.play())
+    console.log(cc.student())
+    console.log(cc.read())
+
+
+    let aim1 = 'aim1'
+    let aim2 = 'aim2'
+
+    const aim = {
+      aim1: 'aim3',
+      aim2: 'aim4',
+      fun: function () {
+        console.log(this)
+      }
+    }
+    aim.fun()   // aim
+    const fnc = aim.fun
+    fnc()  // window
+
+    var aa = []
+    var ff = []
+    for(var i = 0; i < 5; i++){
+      aa[i] = i
+      ff[i] = function (){
+        console.log(i)
+      }
+    }
+    console.log(aa[3])   // 3
+    ff[3]()   // 5  相当于ff数据里面有5个function函数 每个函数的i值指向变量i
+
+    var bb = []
+    var ee = []
+    for(let m = 0; m < 5; m++){
+      // bb[m] = m
+      // ee[m] = function (){
+      //   console.log(m)
+      // }
+      let m = 'mm'
+      console.log(m)
+    }
+    // console.log(bb[3])   // 3
+    // ee[3]()   // 3  let局部作用域指向它当前定义的内存地址
+    
+
   </script>
-  
+
 </body>
+
 </html>

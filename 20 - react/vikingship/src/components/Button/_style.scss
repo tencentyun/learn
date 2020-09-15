@@ -1,0 +1,36 @@
+.btn{
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;  // transparent透明
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+  &.disabled,
+  &[disabled]{
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    > * {     // 类名有disabled的标签其子元素没有点击事件
+      pointer-events: none;
+    }
+  }
+}
+
+// 国内互联网测试现状
+// 1. 重视程度严重不足
+// 2. 没有时间
+// 3. 不会写测试
+
+// 测试的重要性
+// 1. 高质量的代码
+// 2. 更早的发现BUG，减少成本
+// 3. 让重构和升级变得更加容易和可靠
+// 4. 让开发流程更加敏捷

@@ -42,6 +42,45 @@
     console.log(madongmei.name)               // 马冬梅
     console.log(madongmei.number)             // 101
     madongmei.sayHi()
+
+    function Student2(name, age){
+      this.name = name
+      this.age = age
+    }
+    Student2.prototype.sayHi = function (){
+      console.log(`姓名${this.name},  学号${this.number}`)
+    }
+
+    class Project {
+      constructor(name, time) {
+        this.name = name
+        this.time = time
+      }
+      makeFun(){
+        console.log(`name ${this.name} time ${this.time}`)
+      }
+      descFun(){
+        return '做了两年'
+      }
+    }
+    const woyun = new Project('联通沃云', '2')
+    console.log(woyun.name)
+    console.log(woyun.time)
+    woyun.makeFun()
+
+    class SmallProject extends Project{
+      constructor(name, content){
+        super(name)
+        this.content = content
+      }
+      makeFun2(){
+        console.log(`name ${this.name} time ${this.content} ` + super.descFun())
+      }
+    }
+    const bingsheng = new SmallProject('丙晟云商', '做了一年')
+    console.log(bingsheng.name)
+    console.log(bingsheng.content)
+    bingsheng.makeFun2()
   </script>
 </body>
 </html>

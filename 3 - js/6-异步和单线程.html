@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 异步
     console.log(100);
-    setTimeout(function (){
+    setTimeout(function () {
       console.log(200)
     }, 1000)
     console.log(300)
@@ -47,7 +49,7 @@
     //   })
     // }
 
-    function loadImg(src){
+    function loadImg(src) {
       return new Promise((resolve, reject) => {
         const img = document.createElement('img')
         img.onload = () => {
@@ -76,6 +78,28 @@
       console.log(img2.height)
     }).catch(err => console.log(err))
 
+    // let url1 = './data1.json'
+    // let url2 = './data2.json'
+    // let url3 = './data3.json'
+    // function getRes(url) {
+    //   return new Promise((resolve, reject) => {
+    //     $.ajax({
+    //       url,
+    //       success(data) {
+    //         resolve(data)
+    //       },
+    //       error(err){
+    //         reject(err)
+    //       }
+    //     })
+    //   })
+    // }
+    // getRes(url1).then(data => {
+    //   console.log(data)
+    //   return getRes(url2)
+    // }).then().catch()
+
   </script>
 </body>
-</html>  
+
+</html>

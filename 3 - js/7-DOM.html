@@ -7,6 +7,22 @@
 </head>
 <body>
 
+  <div onclick="divFun()">
+    <a href="http://www.baidu.com" onclick="aFun(event)">链接</a>
+    <ul>
+      <li onclick="liFun(event)">11</li>
+      <li>22</li>
+    </ul>
+  </div>
+
+  <div>
+    <ol onclick="olFun(event)">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+  </div>
+
   <script>
   // 前言
   // vue和React框架应用广泛，但也封装了DOM操作
@@ -14,8 +30,8 @@
   // 只会vue而不懂DOM操作的前端程序员，不会长久
   // 不要被框架限制了自己的能力与知识范围
   // property是一种属性形式 不是一个api 例如img.style.width
-  img.setAttribute('data-name', 'imooc')    // set一个属性
-  img.getAttribute('data-name')             // get一个属性
+  // img.setAttribute('data-name', 'imooc')    // set一个属性
+  // img.getAttribute('data-name')             // get一个属性
 
   // property: 修改对象属性，不会提现到html结构中
   // attribute: 修改html属性，会改变html结构
@@ -26,28 +42,49 @@
   // 对DOM查询做缓存
   // 将频繁操作改为一次性操作
   // 不缓存DOM查询结果
-  for(let i = 0; i < document.getElementById('id').length; i++){
+  // for(let i = 0; i < document.getElementById('id').length; i++){
     // 每次循环，都会计算length，频繁进行DOM查询
-  } 
+  // } 
 
   // 缓存DOM查询结果
-  const pList = document.getElementById('id')
-  const length = pList.length
-  for(let i = 0; i < length; i++){
-    // 缓存length， 只进行一次DOM查询
+  // const pList = document.getElementById('id')
+  // const length = pList.length
+  // for(let i = 0; i < length; i++){
+  //   // 缓存length， 只进行一次DOM查询
+  // }
+
+  // const listNode = document.getElementById('id')
+  // // 创建一个文档片段，此时还没有插入到DOM树中
+  // const frag = document.createDocumentFragment()
+  // // 执行插入
+  // for(let x = 0; x < 10; x++){
+  //   const li = document.createElement('div')
+  //   li.innerHTML = '1231'
+  //   frag.appendChild()      // 创建的dom放到一个文档片段中
+  // }
+  // listNode.appendChild(frag)
+
+
+  function aFun(event){
+    console.log(event)
+    event.preventDefault()      // 阻止默认行为
+    console.log(111)
   }
 
-  const listNode = document.getElementById('id')
-  // 创建一个文档片段，此时还没有插入到DOM树中
-  const frag = document.createDocumentFragment()
-  // 执行插入
-  for(let x = 0; x < 10; x++){
-    const li = document.createElement('div')
-    li.innerHTML = '1231'
-    frag.appendChild()      // 创建的dom放到一个文档片段中
+  function divFun(){
+    console.log(32321)
   }
-  listNode.appendChild(frag)
 
+  function liFun(event){
+    event.stopPropagation()     // 阻止冒泡行为
+    console.log(event)
+  }
+
+
+  function olFun(event){
+    event.preventDefault()
+    console.log(event.target.innerText)
+  }
   </script>
 
  
