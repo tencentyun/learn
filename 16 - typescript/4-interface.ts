@@ -1,7 +1,7 @@
-// interface接口方便定义object类型
+// interface接口方便定义object类型 对object进行约束
 // 1. 对对象的形状(shape)进行描述：例如属性和方法
 // 2. 对类(class)进行抽象
-// 3. Duck Typing(鸭子类型)：动态编程语言的一种对象的推断策略，更加关注对象如何被使用，而不是对象本身 
+// 3. Duck Typing(鸭子类型)：动态编程语言的一种对象的推断策略，更加关注对象如何被使用，而不是对象类型本身 
 
 interface Person {      // 声明一个interface
   readonly id: number;    // 声明该属性只读
@@ -18,7 +18,8 @@ let viking: Person = {    // 对象的属性形状必须和Person一样
 // viking.id = 321     // 报错  interface已经声明了只读
 
 
-// 使用interface对class进行抽象
+// 对类进行抽象 使用interface对class进行抽象 
+// 类可以使用implements来实现接口
 // 例如汽车和手机都有收音机 理论上没有合适的父类进行继承  但是可以抽象出一个interface接口实现共同属性的继承
 interface Radio{      // 收音机
   switchRadio(): void      // void(新的关键字) 表示什么都不返回  
@@ -58,3 +59,5 @@ class Cellphone2 implements RadioWithBattery {
 
   }
 }
+
+// interface仿佛是某种契约，可以定义和约束所有内容，比如object的内容，implments来抽象类的属性和方法，还可以定义函数的类型

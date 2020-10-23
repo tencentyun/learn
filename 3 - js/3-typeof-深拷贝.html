@@ -107,6 +107,43 @@
     }
 
 
+    const deepObj = {
+      name: '小明',
+      age: 20,
+      eat: function (){
+        console.log('123')
+      },
+      likes: ['1', '2', '3']
+    }
+
+    const deepObj2 = deepClone(deepObj)
+    deepObj2.name = '张三'
+    deepObj2.likes.unshift('10')
+    console.log(deepObj)
+    console.log(deepObj2)
+
+    function deepClone(obj){
+      if(typeof obj !== 'object' || typeof obj === null){
+        return obj   // 值类型不用深拷贝直接返回
+      }
+
+      let res = null
+      if(obj instanceof Array){
+        res = []
+      }else{
+        res = {}
+      }
+
+      for(let key in obj){
+        if(obj.hasOwnProperty(key)){
+          res[key] = deepClone(obj[key])
+        }
+      }
+      
+      return res
+    }
+
+
 
 
   </script>

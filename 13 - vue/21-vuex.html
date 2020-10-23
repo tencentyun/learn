@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const store = new Vuex.Store({
+      state: {
+        count: 1,
+        list: [1, 2, 3]
+      },
+      getter: {
+        // 类似于计算属性 可以对state的数据进行计算处理
+      },
+      mutations: {        // 只有mutations可以改变state里面的数据状态
+        add(state){
+          state.count++
+        }
+      },
+      actions: {         // 处理异步数据 调用mutations里面的方法来改变state的数据状态
+        fun(context){
+          context.commit('add')   
+        }
+      },
+      // module  将store分割为不同的模块进行组装
+    })
+
+
+    // 在组件中调用mutations里面的函数来改变state里面的数据状态
+    this.$store.commit('add')
+
+    // 在组件中调用actions里面的方法 actions里面的方法在调用mutatios里面的方法来改变state的数据状态
+    this.$store.dispatch('fun').then(() => {})
+  </script>
+</body>
+</html>

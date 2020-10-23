@@ -1,6 +1,7 @@
-// 泛型: 是指在定义函数、接口或者类的时候  不预先指定其类型 而是在使用的时候才指定类型的一种特征
+  // 泛型: 是指在定义函数、接口或者类的时候  不预先指定其类型 而是在使用的时候才指定类型的一种特征
+  // 仿佛是给容器贴一个标签
 
-function echo<T>(arg: T): T {
+function echo<T>(arg: T): T {   // 指定泛型 这里的T只是我们的一种习惯写法，叫什么都可以
   return arg
 }
 const str: number = 123
@@ -8,10 +9,10 @@ const result = echo(str)
 
 
 
-function swap<T, U>(tuple: [T, U]): [U, T]{
+function swap<T, U>(tuple: [T, U]): [U, T]{   // 原组
   return [tuple[1], tuple[0]]
 }
-const result2 = swap(['string', 123])
+const result2 = swap(['string', 123])  
 
 
 

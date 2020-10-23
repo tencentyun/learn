@@ -180,6 +180,40 @@
     }
     // console.log(bb[3])   // 3
     // ee[3]()   // 3  let局部作用域指向它当前定义的内存地址
+
+
+    // 函数作为返回值被传递
+    function returnFun(){
+      var name = 'xiaoming'
+      return function (){
+        return name
+      }
+    }
+    const obj = returnFun()()
+    console.log(obj)
+
+    // 函数作为参数被传递
+    function paramFun(fn){
+      let age = 20
+      fn()
+    }
+    let age = 100
+    paramFun(function (){
+      console.log(age)
+    })
+
+
+    const thisObj = {
+      name: 'zhangsan',
+      age: 20,
+      fn(param){
+        return `你的名字是${this.name}, 年龄是${this.age}, 参数为${param}`
+      }
+    }
+    console.log(thisObj.fn())
+    console.log(thisObj.fn.call({name: 'lisi', age: 100}, '学号12345678'))
+    console.log(thisObj.fn.apply({name: 'lisi', age: 100}, ['学号12345678']))
+    console.log(thisObj.fn.bind({name: 'lisi', age: 100}, '学号12345678')())
     
 
   </script>

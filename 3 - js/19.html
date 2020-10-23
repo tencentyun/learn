@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 封装一个函数 返回参数的类型
+
+
+    // 2. 左侧div固定宽度300px，右侧div怎么平铺满屏幕
+
+
+    // 3. 确认输出
+    var num = 9
+    var obj = {
+      num: 10,
+      fn: function () {
+        var num = 11
+        return this.num
+      }
+    }
+    console.log(obj.fn())                
+    console.log(obj.fn.call())           
+    console.log(obj.fn.call({ num: 8 }))   
+
+
+    // 4. 确认输出
+    for(var index = 0; index < 5; index++){
+      (function (){
+        setTimeout(function (){
+          console.log(index)      
+        }, index * 1000)
+      })(index)
+    }
+
+
+    // 5. 确认输出
+    var test_b = 11
+    if (!(test_a in window)) {    
+      var test_a = 11
+    } else {
+      test_b++
+    }
+    console.log(test_a)   
+    console.log(test_b)   
+
+
+    // 6. a在什么情况下会输出a
+    if (a == 1 && a == 2 && a == 3) {
+      console.log(1)
+    }
+
+  </script>
+</body>
+
+</html>

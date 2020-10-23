@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./5 - 格式化浏览器样式.css">
+  <style>
+    /* absolute + 负margin ---start */
+    .parent{
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-color: yellow;
+    }
+    .child{
+      position: absolute;
+      background-color: red;
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -100px;
+    }
+    /* absolute + 负margin ---end */
+
+    /* css-table ---start */
+    .parent-2{
+      width: 800px;
+      height: 300px;
+      background-color: yellow;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;    /* [ˈvɜːtɪkl] */
+    }
+    .child-2{
+      background-color: red;
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+    }
+    /* css-table ---end */
+
+    /* flex ---start */
+    .parent-3{
+      width: 800px;
+      height: 300px;
+      background-color: yellow;
+      display: flex;
+      justify-content: center;    /* 定义在主轴上的对齐方式 */
+      align-items: center;        /* 定义在交叉轴上的对齐方式 */
+    }
+    .child-3{
+      background-color: red;
+      width: 200px;
+      height: 200px;
+      
+    }
+    /* flex ---end */
+  </style>
+</head>
+<body>
+  <!-- absolute + 负margin -->
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+
+  <br />
+  <br />
+
+  <!-- css-table -->
+  <div class="parent-2">
+    <div class="child-2"></div>
+  </div>
+
+  <br />
+  <br />
+
+  <!-- flex -->
+  <div class="parent-3">
+    <div class="child-3"></div>
+  </div>
+</body>
+</html>

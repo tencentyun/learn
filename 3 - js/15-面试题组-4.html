@@ -60,11 +60,13 @@
     // flatern 多维数组拍平
     function flat(arr){
       // 验证arr中，还有没有深层数组
-      const isDeep = arr.some(item => item instanceof Array)
+      const isDeep = arr.some((item) => {
+        return item instanceof Array
+      })
+      console.log(isDeep)
       if(!isDeep){
         return arr
       }
-
       const res = Array.prototype.concat.apply([], arr)
       return flat(res)
     }

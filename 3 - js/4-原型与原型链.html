@@ -81,6 +81,34 @@
     console.log(bingsheng.name)
     console.log(bingsheng.content)
     bingsheng.makeFun2()
+
+
+    class People12{
+      constructor(name, age){
+        this.name = name
+        this.age = age
+      }
+
+      peopleFun(){
+        return `你的名字是${this.name}, 你的年龄是${this.age}`
+      }
+    }
+
+    class Student12 extends People12{
+      constructor(name, age, studentNumber){
+        super(name, age)
+        this.studentNumber = studentNumber
+      }
+
+      studentFun(){
+        return `你的学号是${this.studentNumber}, ` + super.peopleFun()
+      }
+    }
+
+    const xiaoming = new Student12('小明', 20, '12345678')
+    console.log(xiaoming.name)
+    console.log(xiaoming.studentFun())
+
   </script>
 </body>
 </html>

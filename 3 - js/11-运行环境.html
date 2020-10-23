@@ -57,49 +57,103 @@
 
     // input防抖代码
     const input1 = document.getElementById('input')
-    let timer = null
-    input1.addEventListener('keyup', function () {
-      if (timer) {
-        clearTimeout(timer)   // 清空定时器
-      }
-      timer = setTimeout(() => {
-        console.log(input1.value)   // 模拟触发 change事件
-        timer = null    // 清空定时器
-      }, 500)
-    })
+    // let timer = null
+    // input1.addEventListener('keyup', function () {
+    //   if (timer) {
+    //     clearTimeout(timer)   // 清空定时器
+    //   }
+    //   timer = setTimeout(() => {
+    //     console.log(input1.value)   // 模拟触发 change事件
+    //     timer = null    // 清空定时器
+    //   }, 500)
+    // })
 
     // 封装防抖
-    function debounce(fn, delay = 500) {
-      let timer = null
-      return function () {
-        if (timer) {
-          clearTimeout(timer)   // 清空定时器
-        }
-        timer = setTimeout(() => {
-          fn()
-          timer = null    // 清空定时器
-        }, delay)
-      }
-    }
-    input1.addEventListener('keyup', debounce(function (){
-      console.log(input1.value)
-    }, 500))
+    // function debounce(fn, delay = 500) {
+    //   let timer = null
+    //   return function () {
+    //     if (timer) {
+    //       clearTimeout(timer)   // 清空定时器
+    //     }
+    //     timer = setTimeout(() => {
+    //       fn()
+    //       timer = null    // 清空定时器
+    //     }, delay)
+    //   }
+    // }
+    // input1.addEventListener('keyup', debounce(function (){
+    //   console.log(input1.value)
+    // }, 500))
 
     // 节流 throttle
     // 拖拽一个元素时，要随时拿到该元素被拖拽的位置
     // 直接用drag事件，则会频繁触发，很容易导致卡顿
     // 节流：无论拖拽速度多快，都会每隔100ms触发一次
     const dragId = document.getElementById('dragId')
-    let timer2 = null
-    dragId.addEventListener('drag', function (e){
-      if(timer2){
-        return 
+    // let timer2 = null
+    // dragId.addEventListener('drag', function (e){
+    //   if(timer2){
+    //     return 
+    //   }
+    //   timer2 = setTimeout(() => {
+    //     console.log(e.offsetX)   // 模拟触发 change事件
+    //     timer2 = null    // 清空定时器
+    //   }, 100)
+    // })
+
+    // function throttle(fn, delay){
+    //   let timer = null
+    //   return function (){
+    //     if(timer){
+    //       return 
+    //     }
+    //     timer = setTimeout(() => {
+    //       fn.apply(this, arguments)
+    //       // fn()
+    //       timer = null
+    //     }, delay)
+    //   }
+    // }
+    // dragId.addEventListener('drag', throttle(function (event){
+    //   console.log(event.offsetX)
+    // }, 500))
+
+
+    // 防抖
+    function debounce3(fn, delay){
+      let timer = null
+      return function (){
+        if(timer){
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          fn.apply(this)
+          timer = null
+        }, delay)
       }
-      timer2 = setTimeout(() => {
-        console.log(e.offsetX)   // 模拟触发 change事件
-        timer2 = null    // 清空定时器
-      }, 100)
-    })
+    }
+    input1.addEventListener('keyup', debounce3(function (){
+      console.log(input1.value)
+    }, 500))
+
+
+    // 节流
+    function throttle3(fn, delay){
+      let timer = null
+      return function (){
+        if(timer){
+          return
+        }
+        timer = setTimeout(() => {
+          fn.apply(this, arguments)
+          timer = null
+        }, delay)
+      }
+    }
+    dragId.addEventListener('drag', throttle3(function (event){
+      console.log(event.offsetX)
+    }, 100))
+
 
   </script>
 </body>

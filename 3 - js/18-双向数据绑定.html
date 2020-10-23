@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" id="a">
+    <span id="b"></span>
+  </div>
+
+  <div>
+    <input type="text" id="input1">
+    <span id="span1"></span>
+  </div>
+</body>
+<script>
+  var obj = {};  //定义一个空对象
+  var val = 'zhao';  //赋予初始值
+  
+  Object.defineProperty(obj, 'val', {//定义要修改对象的属性
+    get: function () {
+      return val;
+    },
+
+    set: function (newVal) {
+      val = newVal;//定义val等于修改后的内容
+      document.getElementById('a').value = val;//让文本框的内容等于val
+      document.getElementById('b').innerHTML = val;//让span的内容等于val
+    }
+  });
+
+  // document.addEventListener('keyup', function (e) {//当在文本框输入内容时让对象里你定义的val等于文本框的值
+  //   obj.val = e.target.value;
+  // })
+
+
+  var obj2 = {}
+  var val2 = ''
+  Object.defineProperty(obj2, 'val2', {
+    get: function (){
+      console.log(val)
+      return val
+    },
+    set: function (newVal){
+      console.log(newVal)
+      val2 = newVal
+      document.getElementById('input1').value = val2
+      document.getElementById('span1').innerHTML = val2
+    }
+  })
+  document.addEventListener('keyup', function (e){
+    obj2.val2 = e.target.value
+  })
+
+</script>
+
+</html>

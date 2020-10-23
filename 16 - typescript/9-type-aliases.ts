@@ -1,4 +1,4 @@
-// 类型别名  常用场景：在联合类型的时候
+// 类型别名 type alias  常用场景：在联合类型的时候
 type PlusType = (x: number, y: number) => number
 function sum(x: number, y: number): number {
   return x + y
