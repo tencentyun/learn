@@ -12,10 +12,10 @@
     // 1. 封装一个函数 返回参数的类型
 
 
-    // 2. 左侧div固定宽度300px，右侧div怎么平铺满屏幕
+    // 2. 左侧div固定宽度300px，右侧div怎么平铺满屏幕，至少说出两种
 
 
-    // 3. 确认输出
+    // 3. 确认console.log输出的值
     var num = 9
     var obj = {
       num: 10,
@@ -24,22 +24,22 @@
         return this.num
       }
     }
-    console.log(obj.fn())                
-    console.log(obj.fn.call())           
+    console.log(obj.fn())                 
+    console.log(obj.fn.call())          
     console.log(obj.fn.call({ num: 8 }))   
 
 
-    // 4. 确认输出
+    // 4. 确认console.log输出的值
     for(var index = 0; index < 5; index++){
       (function (){
         setTimeout(function (){
-          console.log(index)      
+          console.log(index)     
         }, index * 1000)
       })(index)
     }
 
 
-    // 5. 确认输出
+    // 5. 确认console.log输出的值
     var test_b = 11
     if (!(test_a in window)) {    
       var test_a = 11
@@ -50,7 +50,7 @@
     console.log(test_b)   
 
 
-    // 6. a在什么情况下会输出a
+    // 6. a在什么情况下会输出console.log(1)
     if (a == 1 && a == 2 && a == 3) {
       console.log(1)
     }

@@ -8,6 +8,7 @@ describe('FirstComponent.vue', () => {
     const wrapper = shallowMount(FirstComponent, {  
       propsData: { msg }
     })
+    console.log(wrapper.text());
     expect(wrapper.text()).toMatch(msg)
   })
 })

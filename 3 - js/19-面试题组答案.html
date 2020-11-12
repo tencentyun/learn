@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 封装一个函数 返回参数的类型
+
+
+    // 2. 左侧div固定宽度300px，右侧div怎么平铺满屏幕
+
+
+    // 3. 确认输出
+    var num = 9
+    var obj = {
+      num: 10,
+      fn: function () {
+        console.log(this)
+        var num = 11
+        return this.num
+      }
+    }
+    console.log(obj.fn())   // 10               
+    console.log(obj.fn.call()) // 9         
+    console.log(obj.fn.call({ num: 8 }))   // 8
+
+
+    // 4. 确认输出
+    for(var index = 0; index < 5; index++){
+      (function (){
+        setTimeout(function (){
+          console.log(index)     // 5个5 
+        }, index * 1000)
+      })(index)
+    }
+
+
+    // 5. 确认输出
+    var test_b = 11
+    if (!(test_a in window)) {    
+      var test_a = 11
+    } else {
+      test_b++
+    }
+    console.log(test_a)   // undefined
+    console.log(test_b)   // 12 
+
+
+    // 6. a在什么情况下会输出a
+    // 先看a==1&&a==2&&a==3，这是一个短路逻辑与运算符，这就表明只有左端条件为真能会继续往右端进行判断，否则立即整个判断像短路一样为假了，所以呢，a的第一个值必须是a==1为真之后才会进行第二步的a==2判断，由此推断a的值或者说是间接返回值（类型转换后的值）应该是可以自增长的！另外，这种a==1的判断，JavaScript中当遇到不同类型的值进行比较时，会根据类型转换规则试图将它们转为同一个类型再比较。比如 Object 类型与 Number 类型进行比较时，Object 类型会转换为 Number 类型。转换为时会尝试调用 Object.valueOf 和 Object.toString 来获取对应的数字基本类型。
+
+    // 在上述的代码中，逻辑转换先调用了valueOf方法，如果返回的还是对象，再接着调用toString()方法。每次比较都会先执行重写后的对象方法toString()，这个方法里先返回属性num的值再自增（区分：return a.num++表示先返回再自增，return ++a.num表示先自增再把结果返回）。知道了对象a的内部之后就能明白，执行a==1判断时，对象a调用toString()方法返回了属性num的值1，此时比较两个当然是相等的。与此类似，a==2和a==3一样成立。看到这里是否有豁然开朗的感觉捏？
+    var a = {
+      n:0,
+      toString:function(){
+        return this.n+=1
+      }
+    }
+    console.log(a.valueOf())
+    if (a == 1 && a == 2 && a == 3) {
+      console.log(1)
+    }
+
+  </script>
+</body>
+
+</html>
