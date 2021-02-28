@@ -1,27 +1,173 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>vue 示例</title>
-	<meta charset="utf-8">
+  <title>vue 示例</title>
+  <meta charset="utf-8">
 </head>
+
 <body>
 
-	<div id="app">
-		<input v-model='name' type="" name="">
-		<h1>{{name}}</h1>
-	</div>
+  <div id="app">
+    <input v-model='name' type="" name="">
+    <h1>{{name}}</h1>
+    <ul>
+      <li v-for="item in arr" :key="item.name">
+        <a :href="item.url" target="blank">{{item.name}}</a>
+      </li>
+    </ul>
+  </div>
 
-	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
-	<script type="text/javascript">
-		
-		new Vue({
-			el: '#app',
-			data: {
-				name: ''
-			}
-		});
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script type="text/javascript">
 
-	</script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: '',
+        arr: [
+          {
+            name: '1 自序',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543788&idx=1&sn=c7eb63387c3d81f12bad8d6c4e7e7ec7&scene=19#wechat_redirect'
+          }, {
+            name: '3 到底什么样的人适合做投资',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543788&idx=1&sn=c7eb63387c3d81f12bad8d6c4e7e7ec7&scene=19#wechat_redirect'
+          }, {
+            name: '4 是什么原因导致你开始思考自己的投资哲',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543846&idx=1&sn=3e5ca0dcd0461cbdd6524da47b6f489b&scene=19#wechat_redirect'
+          },{
+            name: '5 做一个成功的交易者，到底难在哪里？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543878&idx=1&sn=b2687067539c88a54de6f45c704fccac&scene=19#wechat_redirect'
+          },{
+            name: '6 团队交易可行',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543892&idx=1&sn=599a1e62cf2efbac8142e1c981a46f12&scene=19#wechat_redirect'
+          },{
+            name: '7 知行合一难在哪里，要如何实现？',
+            url: 'https://mp.weixin.qq.com/s/Jf6Gc-y46KylSRE7Hxva9A'
+          },{
+            name: '8 一名交易者产生顿悟的契机及结果',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543920&idx=1&sn=1a14f74dd4ad076eeb5804417205e662&scene=19#wechat_redirect'
+          },{
+            name: '9 交易者应该遵循什么样的方式来学习股票投资？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543935&idx=1&sn=cea5e6163b0350ceea8989d1418ac2c9&scene=19#wechat_redirect'
+          },{
+            name: '10 “标准在先”的投资原则',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543949&idx=1&sn=5ce8d62c605279317c5f561d6b3e46c1&scene=19#wechat_redirect'
+          },{
+            name: '11 自觉注意与自发注意？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543962&idx=1&sn=c85bbff0f7c56183ba215a4cd86d00b8&scene=19#wechat_redirect'
+          },{
+            name: '12 什么是“未战而先胜”的心理优势？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543977&idx=1&sn=5e3ea1526a3747f629f490643abd119b&scene=19#wechat_redirect'
+          },{
+            name: '13 股票市场中的规律是发明，还是发现？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544007&idx=1&sn=5377ffe62e2c6e75195b375abee56f6f&scene=19#wechat_redirect'
+          },{
+            name: '14 一个故事说清投资哲学',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544021&idx=1&sn=0b4caad99cda41847aa681a80ee5d77d&scene=19#wechat_redirect'
+          },{
+            name: '15 投资理论有高下之分吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544035&idx=1&sn=a102bedc2ee6b73bc5267d4f66a39234&scene=19#wechat_redirect'
+          },{
+            name: '16 投资理论建立的过程中，博采众长是个好选择吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544049&idx=1&sn=48b8836d9afcd7a5b0c73cc3c67f6434&scene=19#wechat_redirect'
+          },{
+            name: '17 市场各投资流派大比较',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544063&idx=1&sn=8bfcbac40a9d2d2f36bb93fb2345bdf9&scene=19#wechat_redirect'
+          },{
+            name: '18 怎么看待基本面分析？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544077&idx=1&sn=1345c6449d623a8e9d699004ad64bd53&scene=19#wechat_redirect'
+          },{
+            name: '19 如何看待索罗斯的反射理论？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544091&idx=1&sn=23d3ec325f7850ec36f000290fa9c161&scene=19#wechat_redirect'
+          },{
+            name: '20 如何看待技术指标的作用？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544106&idx=1&sn=70acec59c07e0cb23670facb7af41e09&scene=19#wechat_redirect'
+          },{
+            name: '21 作者是什么样的投资理论？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544120&idx=1&sn=74e8179905b4c29baaa3ba1f9d9e9540&scene=19#wechat_redirect'
+          },{
+            name: '22 为什么大多数人都会忽视风控？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544149&idx=1&sn=4060a4cb97600f2a7c4f13d9a3ebb47a&scene=19#wechat_redirect'
+          },{
+            name: '23 风控中可以借鉴的各种经验',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544164&idx=1&sn=536f1e4b970d3cb27e8c4df93573a0ad&scene=19#wechat_redirect'
+          },{
+            name: '24 作者的四道风控防线',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544226&idx=1&sn=00560a5b0d441b2a13c0a37dee9c060c&scene=19#wechat_redirect'
+          },{
+            name: '25 内在风控与外在风控',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544318&idx=1&sn=e35ff27f08b4a60b50abad097eb45679&scene=19#wechat_redirect'
+          },{
+            name: '26 怎样才能在交易中培养好的心态？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544352&idx=1&sn=88bf7bad75a9cfdfc8b2118a09f09ffa&scene=19#wechat_redirect'
+          },{
+            name: '27 你是如何理解“稳准狠”的操作风格的？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544434&idx=1&sn=0989f7567bc2bf922c4f749152569822&scene=19#wechat_redirect'
+          },{
+            name: '28 交易思路有多重要？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544472&idx=1&sn=e04d83853a34c38f1c90a48d860d723b&scene=19#wechat_redirect'
+          },{
+            name: '29 我们该怎样形成自己的投资思路呢？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544511&idx=1&sn=bf3a0b02831a0319ad8a2b54e4ba6d38&scene=19#wechat_redirect'
+          },{
+            name: '30 什么是交易者的投资风格？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544543&idx=1&sn=14cd2687cc3502ef919ff8eea43e3025&scene=19#wechat_redirect'
+          },{
+            name: '31 为什么要采用试探加码的交易策略？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544609&idx=1&sn=36bc66a8c18bd0727bd9c47f587420c0&scene=19#wechat_redirect'
+          },{
+            name: '32 正金字塔加仓和倒金字塔加仓，哪个更好？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544653&idx=1&sn=33d765872386c390fb52bc6a57b6d62e&scene=19#wechat_redirect'
+          },{
+            name: '33 交易次数频繁会导致什么结果？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544667&idx=1&sn=afde113128e6a666dbf38394e3aaf72a&scene=19#wechat_redirect'
+          },{
+            name: '34 作者有什么好的风控思路可以借鉴？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544701&idx=1&sn=54f8d23b42cdf56f1c1c706896160abf&scene=19#wechat_redirect'
+          },{
+            name: '35 重仓交易真的不好吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544739&idx=1&sn=ac841ce2c75954d3d3948b3e665b252e&scene=19#wechat_redirect'
+          },{
+            name: '36 什么是幅度取胜和仓位取胜？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544805&idx=1&sn=63c01259386a5e433e5a69777dcc3b82&scene=19#wechat_redirect'
+          },{
+            name: '37 你知道你的最佳击打区吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544822&idx=1&sn=90da4cf189dedad99d6fdfeb83597cf4&scene=19#wechat_redirect'
+          },{
+            name: '38 投资与信仰有关吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544835&idx=1&sn=83f6db09f60133103caf30d49aa6e3ec&scene=19#wechat_redirect'
+          },{
+            name: '39 小智为财奴，中智为克己，大智为信仰',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544954&idx=1&sn=ce5c0aa430c4fcb95e9f9c73592e1a76&scene=19#wechat_redirect'
+          },{
+            name: '40 投资信仰能够帮助我们减少痛苦和烦恼吗？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544973&idx=1&sn=3ad6e2eb08ab75f653405f9daf0c6fa9&scene=19#wechat_redirect'
+          },{
+            name: '41 训练一个交易员要经历几个阶段？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544986&idx=1&sn=d41cd9a9616faab21cafd6c1b9737eb5&scene=19#wechat_redirect'
+          },{
+            name: '42 为什么大多数投机者最后的命运都不大乐观？ 上',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544999&idx=1&sn=dfec0958b33676a88876cf0e54fdaf20&scene=19#wechat_redirect'
+          },{
+            name: '43 为什么大多数投机者最后的命运都不大乐观？ 中',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545012&idx=1&sn=4ba7ede08b22a1dc9245cb16780d89ff&scene=19#wechat_redirect'
+          },{
+            name: '44 为什么大多数投机者最后的命运都不大乐观？ 下',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545024&idx=1&sn=f3f5b5263bf32e5eb4c1d13ee6f2a884&scene=19#wechat_redirect'
+          },{
+            name: '45 “信则灵”，怎么理解？',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545056&idx=1&sn=237ac6af35d2f503fd86d369cf15634c&scene=19#wechat_redirect'
+          },{
+            name: '46 关于投资信仰的总结（小结局）',
+            url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545085&idx=1&sn=b1495f1500246e3be4db37f97abc033b&scene=19#wechat_redirect'
+          }
+        ]
+      }
+    });
+
+  </script>
 
 </body>
+
 </html>

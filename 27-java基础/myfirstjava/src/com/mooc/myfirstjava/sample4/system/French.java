@@ -1,9 +1,8 @@
 package com.mooc.myfirstjava.sample4.system;
 
-public class Chinese implements Language {
-
+public class French implements Language {
   @Override
   public void voice() {
-    System.out.println("Chinese Language");
+    System.out.println("French Language");
   }
 }
