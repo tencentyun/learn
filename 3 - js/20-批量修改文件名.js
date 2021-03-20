@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var PATH = '/Users/dengtao/Desktop/5-慕课网/web前端架构师/第一周'; // 目录
+var PATH = '/Users/dengtao/Desktop/5-慕课网/web前端架构师/第二周'; // 目录
 
 //  遍历目录得到文件信息
 function run(path, callback) {
@@ -27,7 +27,7 @@ function rename(oldPath, newPath) {
 run(PATH, function (path, fileName) {
   console.log(111);
   var oldPath = path + '/' + fileName, // 源文件路径
-    newPath = path + '/' + fileName.replace('__[3]_19181更多一手课程QQ1931962866', ''); // 新路径
+    newPath = path + '/' + fileName.replace('_更多课程加QQ1931962866_16514', ''); // 新路径
   console.log(newPath);
   rename(oldPath, newPath);
 });

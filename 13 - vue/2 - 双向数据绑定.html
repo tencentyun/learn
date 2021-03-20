@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
 <head>
   <title>vue 示例</title>
@@ -9,16 +10,28 @@
 <body>
 
   <div id="app">
-    <input v-model='name' type="" name="">
-    <h1>{{name}}</h1>
-    <ul>
-      <li v-for="item in arr" :key="item.name">
-        <a :href="item.url" target="blank">{{item.name}}</a>
-      </li>
-    </ul>
+    <el-row :gutter="50">
+      <el-col :span="8">
+        <h3>《十年一梦》</h3>
+        <ul>
+          <li v-for="item in arr2" :key="item.name">
+            <a :href="item.url" target="blank">{{item.name}}</a>
+          </li>
+        </ul>
+      </el-col>
+      <el-col :span="8">
+        <h3>《澄明之境》</h3>
+        <ul>
+          <li v-for="item in arr" :key="item.name">
+            <a :href="item.url" target="blank">{{item.name}}</a>
+          </li>
+        </ul>
+      </el-col>
+    </el-row>
   </div>
 
   <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script type="text/javascript">
 
     new Vue({
@@ -35,134 +48,324 @@
           }, {
             name: '4 是什么原因导致你开始思考自己的投资哲',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543846&idx=1&sn=3e5ca0dcd0461cbdd6524da47b6f489b&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '5 做一个成功的交易者，到底难在哪里？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543878&idx=1&sn=b2687067539c88a54de6f45c704fccac&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '6 团队交易可行',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543892&idx=1&sn=599a1e62cf2efbac8142e1c981a46f12&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '7 知行合一难在哪里，要如何实现？',
             url: 'https://mp.weixin.qq.com/s/Jf6Gc-y46KylSRE7Hxva9A'
-          },{
+          }, {
             name: '8 一名交易者产生顿悟的契机及结果',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543920&idx=1&sn=1a14f74dd4ad076eeb5804417205e662&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '9 交易者应该遵循什么样的方式来学习股票投资？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543935&idx=1&sn=cea5e6163b0350ceea8989d1418ac2c9&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '10 “标准在先”的投资原则',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543949&idx=1&sn=5ce8d62c605279317c5f561d6b3e46c1&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '11 自觉注意与自发注意？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543962&idx=1&sn=c85bbff0f7c56183ba215a4cd86d00b8&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '12 什么是“未战而先胜”的心理优势？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504543977&idx=1&sn=5e3ea1526a3747f629f490643abd119b&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '13 股票市场中的规律是发明，还是发现？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544007&idx=1&sn=5377ffe62e2c6e75195b375abee56f6f&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '14 一个故事说清投资哲学',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544021&idx=1&sn=0b4caad99cda41847aa681a80ee5d77d&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '15 投资理论有高下之分吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544035&idx=1&sn=a102bedc2ee6b73bc5267d4f66a39234&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '16 投资理论建立的过程中，博采众长是个好选择吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544049&idx=1&sn=48b8836d9afcd7a5b0c73cc3c67f6434&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '17 市场各投资流派大比较',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544063&idx=1&sn=8bfcbac40a9d2d2f36bb93fb2345bdf9&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '18 怎么看待基本面分析？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544077&idx=1&sn=1345c6449d623a8e9d699004ad64bd53&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '19 如何看待索罗斯的反射理论？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544091&idx=1&sn=23d3ec325f7850ec36f000290fa9c161&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '20 如何看待技术指标的作用？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544106&idx=1&sn=70acec59c07e0cb23670facb7af41e09&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '21 作者是什么样的投资理论？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544120&idx=1&sn=74e8179905b4c29baaa3ba1f9d9e9540&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '22 为什么大多数人都会忽视风控？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544149&idx=1&sn=4060a4cb97600f2a7c4f13d9a3ebb47a&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '23 风控中可以借鉴的各种经验',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544164&idx=1&sn=536f1e4b970d3cb27e8c4df93573a0ad&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '24 作者的四道风控防线',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544226&idx=1&sn=00560a5b0d441b2a13c0a37dee9c060c&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '25 内在风控与外在风控',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544318&idx=1&sn=e35ff27f08b4a60b50abad097eb45679&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '26 怎样才能在交易中培养好的心态？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544352&idx=1&sn=88bf7bad75a9cfdfc8b2118a09f09ffa&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '27 你是如何理解“稳准狠”的操作风格的？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544434&idx=1&sn=0989f7567bc2bf922c4f749152569822&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '28 交易思路有多重要？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544472&idx=1&sn=e04d83853a34c38f1c90a48d860d723b&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '29 我们该怎样形成自己的投资思路呢？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544511&idx=1&sn=bf3a0b02831a0319ad8a2b54e4ba6d38&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '30 什么是交易者的投资风格？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544543&idx=1&sn=14cd2687cc3502ef919ff8eea43e3025&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '31 为什么要采用试探加码的交易策略？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544609&idx=1&sn=36bc66a8c18bd0727bd9c47f587420c0&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '32 正金字塔加仓和倒金字塔加仓，哪个更好？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544653&idx=1&sn=33d765872386c390fb52bc6a57b6d62e&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '33 交易次数频繁会导致什么结果？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544667&idx=1&sn=afde113128e6a666dbf38394e3aaf72a&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '34 作者有什么好的风控思路可以借鉴？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544701&idx=1&sn=54f8d23b42cdf56f1c1c706896160abf&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '35 重仓交易真的不好吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544739&idx=1&sn=ac841ce2c75954d3d3948b3e665b252e&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '36 什么是幅度取胜和仓位取胜？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544805&idx=1&sn=63c01259386a5e433e5a69777dcc3b82&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '37 你知道你的最佳击打区吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544822&idx=1&sn=90da4cf189dedad99d6fdfeb83597cf4&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '38 投资与信仰有关吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544835&idx=1&sn=83f6db09f60133103caf30d49aa6e3ec&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '39 小智为财奴，中智为克己，大智为信仰',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544954&idx=1&sn=ce5c0aa430c4fcb95e9f9c73592e1a76&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '40 投资信仰能够帮助我们减少痛苦和烦恼吗？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544973&idx=1&sn=3ad6e2eb08ab75f653405f9daf0c6fa9&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '41 训练一个交易员要经历几个阶段？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544986&idx=1&sn=d41cd9a9616faab21cafd6c1b9737eb5&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '42 为什么大多数投机者最后的命运都不大乐观？ 上',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504544999&idx=1&sn=dfec0958b33676a88876cf0e54fdaf20&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '43 为什么大多数投机者最后的命运都不大乐观？ 中',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545012&idx=1&sn=4ba7ede08b22a1dc9245cb16780d89ff&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '44 为什么大多数投机者最后的命运都不大乐观？ 下',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545024&idx=1&sn=f3f5b5263bf32e5eb4c1d13ee6f2a884&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '45 “信则灵”，怎么理解？',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545056&idx=1&sn=237ac6af35d2f503fd86d369cf15634c&scene=19#wechat_redirect'
-          },{
+          }, {
             name: '46 关于投资信仰的总结（小结局）',
             url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504545085&idx=1&sn=b1495f1500246e3be4db37f97abc033b&scene=19#wechat_redirect'
           }
-        ]
+        ],
+        arr2: [{
+          name: '1 前言',
+          url: 'https://mp.weixin.qq.com/s/OwK5jKftoHi44yCfHSvjLQ'
+        }, {
+          name: '2 命运是什么',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542014&idx=1&sn=78409bc223c2c75ed97190e6c819a691&scene=19#wechat_redirect'
+        }, {
+          name: '3 1993年的证券市场你了解吗？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542024&idx=1&sn=26251c14176e8f1656c91fa0d4685a1d&scene=19#wechat_redirect'
+        }, {
+          name: '4 第一桶金的由来',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542036&idx=1&sn=43ccf6197e8b020566bdbae42722f8a9&scene=19#wechat_redirect'
+        }, {
+          name: '5 买原始股上过的当',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542041&idx=1&sn=6e6218d1b232b327951ea3fffcc42576&scene=19#wechat_redirect'
+        }, {
+          name: '6 STAQ市场的来历',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542047&idx=1&sn=090e3cdb8ec5c6bc8d251cf6f1fda61d&scene=19#wechat_redirect'
+        }, {
+          name: '7 STAQ市场初战告捷',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542058&idx=1&sn=5b10ec79e6dda365549e925d7090410f&scene=19#wechat_redirect'
+        }, {
+          name: '8 中国股市的三条基本原则',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542074&idx=1&sn=3c5dfc812f6ad910f5208a7e1ceb60d9&scene=19#wechat_redirect'
+        }, {
+          name: '9 肮脏的小把戏',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542088&idx=1&sn=e7cb5f29555a2ea42554aba96fce6ac4&scene=19#wechat_redirect'
+        }, {
+          name: '10 关于股市风险有趣的讨论',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542100&idx=1&sn=66a5a001653bd5e0ecd0a0e5ac4cd35a&scene=19#wechat_redirect'
+        }, {
+          name: '11 错失325点的历史大底',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542110&idx=1&sn=bf47dce18070426a92e83b9035b1e24a&scene=19#wechat_redirect'
+        }, {
+          name: '12 注定无法忘记的一年',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542120&idx=1&sn=090211007c480ab9055ceafb75c98a10&scene=19#wechat_redirect'
+        }, {
+          name: '13 误入国债期货市场',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542128&idx=1&sn=5c105cc5b522811d466aad38e1afe563&scene=19#wechat_redirect'
+        }, {
+          name: '14 在行情显示器面前，我们还有理性吗？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542142&idx=1&sn=5c2c20460c5e9dcd76bfbb83bf12f0c0&scene=19#wechat_redirect'
+        }, {
+          name: '15 327！一天暴赚690万',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542146&idx=1&sn=09e79255f31b0d49e09924176403ff7e&scene=19#wechat_redirect'
+        }, {
+          name: '16、绝大多数市场新手绕不开的弯路',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542154&idx=1&sn=edfbe0d6f0e43c96cb5ae2b1fdfec73d&scene=19#wechat_redirect'
+        }, {
+          name: '17、市场走势到底能不能被准确预测？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542169&idx=1&sn=22726d32134931cf7240e092dcc4b383&scene=19#wechat_redirect'
+        }, {
+          name: '18 技术指标，如获至宝？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542184&idx=1&sn=1ce9f845f5d5518deecbfea09d49fe2f&scene=19#wechat_redirect'
+        }, {
+          name: '19、遇上知名股评家',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542197&idx=1&sn=93933d1cfd12605c89146bad0b0c388a&scene=19#wechat_redirect'
+        }, {
+          name: '20、国债期货退出历史舞台（反思_身边的花边新闻）',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542220&idx=1&sn=b12712bff3c4f9dcddfbbeab2218e20f&scene=19#wechat_redirect'
+        }, {
+          name: '21、纸上富贵梦一场',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542233&idx=1&sn=beef78d5b543f669a48414fa98b86a92&scene=19#wechat_redirect'
+        }, {
+          name: '22、早年证券市场中的透支交易',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542244&idx=1&sn=9355c81a48af6f5285421fc0586b687e&scene=19#wechat_redirect'
+        }, {
+          name: '23、团队交易是不是一个好选择？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542252&idx=1&sn=c985170c8f8829f1ca12bc06b4bf0d08&scene=19#wechat_redirect'
+        }, {
+          name: '24、交易思路的转变',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542258&idx=1&sn=41c6817c60fd05dfd7bb240eed87c785&scene=19#wechat_redirect'
+        }, {
+          name: '25、绿豆市场初战告捷',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542285&idx=1&sn=d41280c49276360b34e2bcf97335df5d&scene=19#wechat_redirect'
+        }, {
+          name: '26、关于卖出的小绝招',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542303&idx=1&sn=0f0be784219a9394fbc945354bdd7c71&scene=19#wechat_redirect'
+        }, {
+          name: '27、价值千金的小结 一',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542314&idx=1&sn=6a44017c6a35a537023cc2582629b9e3&scene=19#wechat_redirect'
+        }, {
+          name: '28、价值千金的小结 二',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542330&idx=1&sn=c11b706a4b79f118d3e8f5f63f79e08e&scene=19#wechat_redirect'
+        }, {
+          name: '29、兵败苏州红小豆',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542344&idx=1&sn=aca7a18534f64d75d3313c86553583a6&scene=19#wechat_redirect'
+        }, {
+          name: '30、听消息最可怕的一点是什么？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542356&idx=1&sn=b9e0128868b014b53b7b2726ab73d9a6&scene=19#wechat_redirect'
+        }, {
+          name: '31、砍仓出局，噩梦没有结束',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542368&idx=1&sn=a3fc076a45b3e4aeef08f8812f6c1cf2&scene=19#wechat_redirect'
+        }, {
+          name: '32、交易者的悲哀——我再也回不去了',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542382&idx=1&sn=b36ebf3286259509c286307488399cd9&scene=19#wechat_redirect'
+        }, {
+          name: '33、与天为敌',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542393&idx=1&sn=09c756f629d5accfa9af2e0888baf37e&scene=19#wechat_redirect'
+        }, {
+          name: '34、“小暴发”的故事',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542405&idx=1&sn=f45793df4f85cd72d827d939bc4b4315&scene=19#wechat_redirect'
+        }, {
+          name: '35、作者挑战的极限游戏',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542419&idx=1&sn=7c621ce02f18a5ef4efb00aaf6dc8d39&scene=19#wechat_redirect'
+        }, {
+          name: '36、十年后的总结',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542434&idx=1&sn=aca0491fe442aa1b8b8b82964500d671&scene=19#wechat_redirect'
+        }, {
+          name: '37、一对期货夫妻的不同命运',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542443&idx=1&sn=2d48eadcea472a9b093a35a0c5e9d292&scene=19#wechat_redirect'
+        }, {
+          name: '38 激战海南咖啡',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542457&idx=1&sn=0fedb915a93c3fa985c3120223ba98b2&scene=19#wechat_redirect'
+        }, {
+          name: '39 逆势操作的反思1111111',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542477&idx=1&sn=3717c2ad9a973184c2552a1fa99d9d86&scene=19#wechat_redirect'
+        }, {
+          name: '40 逆势操作的反思：侥幸',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542490&idx=1&sn=89a120db2ebc8b60bb0135896cd0c9b3&scene=19#wechat_redirect'
+        }, {
+          name: '41 我的几次逆势交易经历',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542504&idx=1&sn=355e5ea93a791e54fb4ac27e36a56066&scene=19#wechat_redirect'
+        }, {
+          name: '42 如何不被短期走势所牵制？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542511&idx=1&sn=18b489f14f3f26afa9e7b5acdec48b0e&scene=19#wechat_redirect'
+        }, {
+          name: '43 新手的心理、思维陷阱：市场会突然反转吗？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542526&idx=1&sn=eb764129a14c8140bec247579d3843b2&scene=19#wechat_redirect'
+        }, {
+          name: '44 价格变化和成交量哪个更重要？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542537&idx=1&sn=69b918c2409137f9612fc33fe0704a70&scene=19#wechat_redirect'
+        }, {
+          name: '45 冥河的摆渡者',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542550&idx=1&sn=1769ccf7bb50164b0233f48ccd4a8ba3&scene=19#wechat_redirect'
+        }, {
+          name: '46 “老司机”利弗莫尔的启示',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542556&idx=1&sn=cabe4b24f65bbbe0f1d7266a4e6c5c4b&scene=19#wechat_redirect'
+        }, {
+          name: '47 老司机利弗莫尔的启示 二',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542564&idx=1&sn=5fba067c507386b6d4fead0bad30c174&scene=19#wechat_redirect'
+        }, {
+          name: '48 老司机利弗莫尔的启示 三',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542572&idx=1&sn=2c9b12118cd612b822ce4e4175b0bc2d&scene=19#wechat_redirect'
+        }, {
+          name: '49 利弗莫尔眼中的市场操纵',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542581&idx=1&sn=eda1bfd30d901e1a004992bf5e7a1ef2&scene=19#wechat_redirect'
+        }, {
+          name: '50 利弗莫尔对作者交易思路的影响',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542595&idx=1&sn=fe440101b8184f18a624a172bef05a0c&scene=19#wechat_redirect'
+        }, {
+          name: '51 “我”的两条短线交易经验 一',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542607&idx=1&sn=9aca827c41b84e2fc62af8ac3180f540&scene=19#wechat_redirect'
+        }, {
+          name: '52 “我”的两条短线交易经验 二',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542645&idx=1&sn=a8cfefcc4452354be52ba3ad5cd0456d&scene=19#wechat_redirect'
+        }, {
+          name: '53 离市场远一点',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542710&idx=1&sn=5b521617c5359196adba3a5f334476d9&scene=19#wechat_redirect'
+        }, {
+          name: '54 你有什么离市场远一点的绝招？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542721&idx=1&sn=6ac2809e05a021cbe9c9eab6b9670e1e&scene=19#wechat_redirect'
+        }, {
+          name: '55 投资者的修养、境界对交易的影响',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542738&idx=1&sn=17a98af73ac43f45e5a5dce26dcbf42b&scene=19#wechat_redirect'
+        }, {
+          name: '56 为什么看似简单的错误，我们却一直无法改正？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542740&idx=1&sn=ad601cb28c191d1f80e46b93adabf177&scene=19#wechat_redirect'
+        }, {
+          name: '57 冲动型交易',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542764&idx=1&sn=715082c0a747e1fc8df53742dd8fd1d7&scene=19#wechat_redirect'
+        }, {
+          name: '58 关于止损的讨论',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542784&idx=1&sn=25623d108628ac9d0feecce74da61b9c&scene=19#wechat_redirect'
+        }, {
+          name: '59 市场高手之间的较量，到底是比什么？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542788&idx=1&sn=41a2175f8c6767f1833a1adfd9592d8a&scene=19#wechat_redirect'
+        }, {
+          name: '60 你能摆脱地心引力吗？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542796&idx=1&sn=90e20e54f0eff7dd627cc0521a2de3af&scene=19#wechat_redirect'
+        }, {
+          name: '61 面对让你无力的事情，你是如何面对的？',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542807&idx=1&sn=8dad3bd348955aba81fe090b77fda970&scene=19#wechat_redirect'
+        }, {
+          name: '62 利弗莫尔之死',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542817&idx=1&sn=8ac2e94b4c160ff6b6f71c867afff78a&scene=19#wechat_redirect'
+        }, {
+          name: '63 完结篇',
+          url: 'https://mp.weixin.qq.com/s?__biz=MzIyMTA5OTQzNA==&mid=504542828&idx=1&sn=5c409d3380827ab6692ed39e349837db&scene=19#wechat_redirect'
+        }]
       }
     });
 
