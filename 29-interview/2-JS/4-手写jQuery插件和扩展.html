@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>1111</p>
+  <p>2222</p>
+  <p>3333</p>
+  <script>
+    class jQuery {
+      constructor(selector){
+        const res = document.querySelectorAll(selector);
+        res.forEach((item, index) => {
+          this[index] = item
+        })
+      }
+      get(index){
+        console.log(this[index]);
+      }
+      on(index, type){
+        this[index].addEventListener(type, () => alert(this[index].innerHTML), false)
+      }
+    }
+
+    class myjQuery extends jQuery {
+      constructor(selector){
+        super(selector);
+      }
+      addClass(index, val){
+        this[index].classList.add(val)
+      }
+    }
+
+    const $p = new jQuery('p');
+    $p.get(1);
+    $p.on(2, 'click');
+
+    const $myjQuery = new myjQuery('p');
+    $myjQuery.addClass(1, 'p-2')
+  </script>
+</body>
+</html>

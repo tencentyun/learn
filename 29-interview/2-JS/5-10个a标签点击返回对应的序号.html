@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <div id="box">
+    <a>1</a>
+    <a>2</a>
+    <a>3</a>
+    <a>4</a>
+    <a>5</a>
+    <a>6</a>
+    <a>7</a>
+    <a>8</a>
+    <a>9</a>
+    <a>10</a>
+  </div> -->
+  <script>
+    // const box = document.getElementById('box');
+    // const res = document.getElementsByTagName('a');
+    // box.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    //   if(event.target.nodeName === 'A'){
+    //     alert(event.target.innerHTML);      // 弹出对应的值
+    //   }
+    // })
+
+    // for (let i = 0; i < res.length; i++) {
+    //   res[i].addEventListener('click', (event) => {
+    //     event.preventDefault();
+    //     alert(i)
+    //   })
+    // }
+
+
+    for (let i = 0; i < 10; i++) {
+      const a = document.createElement('a');
+      a.innerHTML = i + 1 + '<br>';
+      document.body.appendChild(a);
+      a.addEventListener('click', (event) => {
+        event.preventDefault();
+        alert(i+1)
+      })
+    }
+
+
+
+  </script>
+</body>
+
+</html>

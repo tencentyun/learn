@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const obj1 = {
+      name: '张三',
+      age: 20,
+      address: {
+        city: '北京'
+      },
+      arr: [1, 2, 3]
+    };
+
+    const obj2 = deepCopy(obj1);
+    obj1.age = 22;
+    obj2.address.city = "上海";
+    console.log(obj1);
+    console.log(obj2);
+
+    function deepCopy(obj){
+      if(typeof obj !== 'object' || typeof obj == null){
+        return obj;
+      }
+
+      let res;
+      if(res instanceof Array){
+        res = [];
+      }else{
+        res = {};
+      }
+
+      for(var key in obj){
+        if(obj.hasOwnProperty(key)){
+          res[key] = deepCopy(obj[key])
+        }
+      }
+
+      return res
+    }
+  </script>
+</body>
+</html>

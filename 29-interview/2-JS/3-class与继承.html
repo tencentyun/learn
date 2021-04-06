@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // People 父类
+    class People {
+      constructor(name){
+        this.name = name;
+      }
+      eat(){
+        console.log(`${this.name} eat something`);
+      }
+    }
+
+    // Student 子类
+    class Student extends People {
+      constructor(name, number){
+        super(name);
+        this.number = number;
+      }
+      sayHi(){
+        console.log(`姓名 ${this.name}, 学号${this.number}`);
+      }
+    }
+
+    // Teacher 子类
+    class Teacher extends People {
+      constructor(name, major){
+        super(name);
+        this.major = major;
+      }
+      tech(){
+        console.log(`${this.name} 教授 ${this.major}`);
+      }
+    }
+
+    const zhangsan = new Student('张三', 100);
+    zhangsan.sayHi();
+
+    const lilaoshi = new Teacher('李老师', '语文');
+    lilaoshi.tech();
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function imgLoad(url){
+      const obj = new Promise((resolve, reject) => {    // new一个promise的实例，实例接受一个参数为function，function还有两个参数resolve和reject也是function
+        const img = document.createElement('img');
+        img.src = url;
+        img.onload = () => {      // 图片加载成功之后的回调函数  onload在图片加载成功之后立马执行
+          resolve(img);
+        }
+        img.onerror = () => {     // 图片加载失败之后的回调函数  onerror在图片加载失败之后立马执行
+          reject(`图片加载失败 ${url}`);
+        }
+        
+      })
+      return obj;
+    }
+
+    const url1 = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.cxydw.net%3A666%2Fpicture001%2Fe90982eed0.jpg&refer=http%3A%2F%2Fimg.cxydw.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620289212&t=290087bc9f2356975d1281b536365e80';
+    const url2 = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fbef5e5504cedb45b0ea3e7e68ce8980ffe36708ddcb5-dSM4yc_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620289212&t=b8d97516d7a91e15a6ae75f8da307c15';
+
+    imgLoad(url1).then(img => {
+      console.log(img.width);
+      return img;     // return 一个对象实例，下一个then使用
+    }).then(img => {
+      console.log(img.height);
+      return imgLoad(url2);     // return 一个promise实例
+    }).then(img2 => {
+      console.log(img2.width);
+      console.log(img2.height);
+    }).catch(err => console.log(err))
+
+  </script>
+</body>
+</html>

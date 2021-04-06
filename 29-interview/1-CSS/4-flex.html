@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #e7e7e7;
+    }
+
+    .container .right-top {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .container .center {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container .left-bottom {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    .one {
+      margin-right: 10px;
+    }
+
+    .three {
+      margin-left: 10px;
+    }
+
+    .container2 {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #e7e7e7;
+      display: flex;
+      justify-content: space-between;
+    }
+    .container2 .one{
+      align-self: flex-end;
+    }
+    .container2 .two{
+      align-self: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="right-top">
+      <div class="dot one"></div>
+    </div>
+    <div class="center">
+      <div class="dot two"></div>
+    </div>
+    <div class="left-bottom">
+      <div class="dot three"></div>
+    </div>
+  </div>
+
+  <div class="container2">
+    <div class="dot one"></div>
+    <div class="dot two"></div>
+    <div class="dot three"></div>
+  </div>
+</body>
+
+</html>

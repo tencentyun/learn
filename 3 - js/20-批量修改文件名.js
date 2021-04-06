@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var PATH = '/Users/dengtao/Desktop/5-慕课网/web前端架构师/第二周'; // 目录
+var PATH = '/Users/dengtao/Desktop/5-慕课网/1-快速搞定前端技术一面——匹配大厂面试要求-299元/视频/第18章 真题模拟'; // 目录
 
 //  遍历目录得到文件信息
 function run(path, callback) {
@@ -27,7 +27,7 @@ function rename(oldPath, newPath) {
 run(PATH, function (path, fileName) {
   console.log(111);
   var oldPath = path + '/' + fileName, // 源文件路径
-    newPath = path + '/' + fileName.replace('_更多课程加QQ1931962866_16514', ''); // 新路径
+    newPath = path + '/' + fileName.replace('【更多IT教程vx：zhishivip0001】', ''); // 新路径
   console.log(newPath);
   rename(oldPath, newPath);
 });
